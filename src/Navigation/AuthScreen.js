@@ -20,18 +20,18 @@ export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
   return (
     <>
-      {!isFirstTime && (
+      {/* {!isFirstTime && (
         <Stack.Screen
           name={navigationStrings.ON_BOARDING}
           component={OnBoarding}
           options={{headerShown: false}}
         />
-      )}
-      <Stack.Screen
+      )} */}
+      {/* <Stack.Screen
         name={navigationStrings.INITIAL_AUTH}
         component={InitialAuth}
         options={{headerShown: false, gestureEnabled:true }}
-      />
+      /> */}
        <Stack.Screen
         name={navigationStrings.LogInHomeScreen}
         component={LoginHomeScreen}

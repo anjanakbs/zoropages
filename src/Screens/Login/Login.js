@@ -16,6 +16,7 @@ import {
 } from '../../styles/responsiveSize';
 import colors from '../../styles/colors';
 import LinearGradient from 'react-native-linear-gradient';
+import strings from '../../constants/lang';
 
 const Signup = ({navigation}) => {
   const goToScreen = screen => {
@@ -29,6 +30,7 @@ const Signup = ({navigation}) => {
       style={styles.linearGradient}>
       <WrapperContainer>
         <HeaderComp leftIcon={imagePath.backicon} />
+        <Text style={styles.language}>English (US) ^</Text>
         <Image
           source={imagePath.logo}
           style={{
@@ -44,16 +46,16 @@ const Signup = ({navigation}) => {
             {/* <Text style={styles.maintext}>Login to your account</Text> */}
           </View>
           <TextInputWithLabel
-            placeholder="Email"
+            placeholder={strings.EMAIL_ADDRESS}
             extraStyle={{width: width - 60, alignSelf: 'center'}}
           />
           <TextInputWithLabel
-            placeholder="Password"
+            placeholder={strings.PASSWORD}
             extraStyle={{width: width - 60, alignSelf: 'center'}}
           />
           <View style={styles.button}>
             <ButtonComp
-              btnText="LogIn"
+              btnText={strings.LOGIN}
               btnTextStyle={{color: 'white', fontFamily: fontFamily.bold}}
               btnStyle={{
                 marginTop: 20,
@@ -71,8 +73,8 @@ const Signup = ({navigation}) => {
             </Text>
           </View>
           <ButtonComp
-            btnText="Create new account"
-            btnTextStyle={{color: 'black', fontFamily: fontFamily.medium}}
+            btnText={strings.Create_New_Account}
+            btnTextStyle={{color: 'green', fontFamily: fontFamily.medium}}
             btnStyle={{
               marginTop: width / 2,
               borderRadius: 30,
@@ -119,6 +121,9 @@ const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
   },
+  language:{
+    textAlign:'center'
+  }
 });
 
 export default Signup;

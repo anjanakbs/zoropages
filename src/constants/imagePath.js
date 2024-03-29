@@ -29,16 +29,27 @@ export default {
   modal3:require('../assets/images/modal3.png'),
   modalimage:require('../assets/images/modalimage.png'),
   modalimage2:require('../assets/images/modalimage2.png'),
+  Dog:require('../assets/images/Dog.png'),
+  waterfal:require('../assets/images/waterfal.png'),
+travel:require('../assets/images/travel.png'),
 
 
 /***** Like Comment Share */
 Like :require('../assets/images/like.png'),
+Like2:require('../assets/images/Like2.png'),
+Like3:require('../assets/images/like3.png'),
 comment:require('../assets/images/comment.png'),
+comment2:require('../assets/images/Comment2.png'),
+comment3:require('../assets/images/comment3.png'),
 share:require('../assets/images/share.png'),
+share2:require('../assets/images/Share2.png'),
+share3:require('../assets/images/share3.png'),
 facebook:require('../assets/images/ic_facebook.png'),
 twitter:require('../assets/images/ic_twitter.png'),
 google2:require('../assets/images/google2.png'),
 Plus:require('../assets/images/Plus.png'),
+Save:require('../assets/images/Save.png'),
+chat:require('../assets/images/chat.png'),
 
 //**** Post photo, video  */
 posticon:require('../assets/images/Posticon.png'),

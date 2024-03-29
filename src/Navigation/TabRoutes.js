@@ -43,7 +43,7 @@ const TabRoutes = props => {
               <Image
                 source={imagePath.Home}
                 style={{
-                  tintColor: colors.theme,
+                  tintColor: colors.darkgreen,
                 }}
               />
             ) : (
@@ -61,7 +61,7 @@ const TabRoutes = props => {
               <Image
                 source={imagePath.inactive_real}
                 style={{
-                  tintColor: colors.theme,
+                  tintColor: colors.darkgreen,
                 }}
               />
             ) : (
@@ -78,7 +78,7 @@ const TabRoutes = props => {
             return focused ? (
               <Image source={imagePath.active_message}
               style={{
-                tintColor: colors.theme,
+                tintColor: colors.darkgreen,
               }} />
             ) : (
               <Image source={imagePath.inactive_message} />
@@ -94,7 +94,7 @@ const TabRoutes = props => {
             return focused ? (
               <Image source={imagePath.active_notification}
               style={{
-                tintColor: colors.theme,
+                tintColor: colors.darkgreen,
               }} />
             ) : (
               <Image source={imagePath.inactive_notification} />
@@ -111,7 +111,7 @@ const TabRoutes = props => {
             return focused ? (
               <Image source={imagePath.active_profile} 
               style={{
-                tintColor: colors.theme,
+                tintColor: colors.darkgreen,
               }}/>
             ) : (
               <Image source={imagePath.inactive_profile} />

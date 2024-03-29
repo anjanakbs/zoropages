@@ -1,16 +1,20 @@
 import {StyleSheet} from 'react-native';
-import {height, textScale, width} from '../../styles/responsiveSize';
+import {height, moderateScale, textScale, width} from '../../styles/responsiveSize';
 import colors from '../../styles/colors';
 import fontFamily from '../../styles/fontFamily';
 
 const styles = StyleSheet.create({
+  viewstyle:{
+    backgroundColor:colors.grey
+  },
   mainView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   image: {
-    marginTop: 17,
+    // marginTop: 17,
     marginRight: 15,
+    flexDirection:'row',
   },
   tagview: {
     flexDirection: 'row',
@@ -18,28 +22,42 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   imageview: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 4,
+    // flexDirection: 'row',
+    // justifyContent:'space-between'
+    // position: 'absolute',
+    // bottom: 4,
+    marginTop:height/7.5
+  },
+  following:{
+    marginTop:10,
+    fontFamily:fontFamily.medium,
+    fontSize:15,
+   
+  },
+    
+  text:{
+    alignSelf:'center',
+    paddingRight:width/2
   },
   comment: {
-    backgroundColor: '#D9D9D9',
+    // backgroundColor: '#D9D9D9',
+    backgroundColor:colors.white,
     height: height / 5,
     width: width - 20,
     borderRadius: 10,
   },
   relax: {
-    color: colors.theme,
-    fontSize: textScale(25),
-    fontFamily: fontFamily.medium,
+    color: colors.darkgreen,
+    fontSize: textScale(22),
+    fontFamily: fontFamily.bold,
   },
   travel: {
-    color: colors.theme,
-    fontSize: textScale(25),
-    fontFamily: fontFamily.medium,
+    color: colors.darkgreen,
+    fontSize: textScale(22),
+    fontFamily: fontFamily.bold,
   },
   imagebackground: {
-    height: height / 5,
+    height: height / 4,
     width: width - 20,
     borderRadius: 10,
   },
@@ -52,14 +70,20 @@ const styles = StyleSheet.create({
   likeimage: {
     height: 30,
     width: 30,
+    // paddingLeft:20
+    marginRight:25
   },
   likeview: {
     paddingLeft: 10,
     paddingRight: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     marginTop: 14,
   },
+  saveimage:{
+    paddingLeft:width/2.5,
+    // marginTop:10
+  }
 });
 
 export default styles;

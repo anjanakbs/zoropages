@@ -24,6 +24,7 @@ export default {
     CONTINUE:"Continue",
     NO_DATA_FOUND:"No data found",
     PROJECT_UNDER_CONSTRUCTION:"Project Under Construction",
+    Create_New_Account:'Create New Acoount',
 
     /////// seachfriend const
     search:'Search here....'
