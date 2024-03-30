@@ -1,31 +1,61 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react';
-import Video from 'react-native-video'
-
+import {View,StyleSheet, FlatList} from 'react-native';
+import React, {useState} from 'react';
+import Video from 'react-native-video';
+import {width} from '../styles/responsiveSize';
+import colors from '../styles/colors';
 const VideoComponent = () => {
-  return (
-    <View>
-      <Video source={{uri: "https://youtu.be/gvkqT_Uoahw?si=zE1p_Q7LdG2BaTnS"}}   
-       ref={(ref) => {
-         this.player = ref
-       }}                                      
-       onBuffer={this.onBuffer}               
-       onError={this.videoError}               
-       style={styles.backgroundVideo} 
-    controls={true}
-    />
+  const [video, setvideo] = useState([
+    {src: require('../assets/images/backgroundvideo.mp4')},
+    {src: require('../assets/images/video.mp4')},
+    {src: require('../assets/images/backgroundvideo.mp4')},
+    {src: require('../assets/images/video.mp4')},
+  ]);
+  const renderItem = ({item, index, seprator}) => (
+    <View style={{flex: 1}}>
+      <Video
+        source={item.src}
+        style={styles.Video}
+        controls
+        resizeMode={'cover'}
+      />
     </View>
- )
-}
+  );
+  return (
+    <View style={styles.mainview}>
+      <FlatList
+        data={video}
+        renderItem={renderItem}
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}
+      />
+    </View>
+  );
+};
 export default VideoComponent;
-
 const styles = StyleSheet.create({
-  backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+  Video: {
+    width: width/1.1,
+    height: 200,
+    marginTop: 10,
+    marginLeft: 10,
+    borderRadius:10
   },
+  mainview:{
+    backgroundColor:colors.white,
+    borderRadius:20,
+    borderWidth:1,
+    borderColor:colors.white,
+    marginTop:10
+  }
 });
- 
+
+
+  /* <Video
+        source={{
+          uri: '/Users/jasneetkaur/Documents/Projects/zoropages/src/assets/images/video.mp4',
+        }}
+        style={styles.Video}
+        controls
+        resizeMode={'cover'}
+      /> */
+

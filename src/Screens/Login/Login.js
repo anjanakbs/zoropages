@@ -23,9 +23,7 @@ const Signup = ({navigation}) => {
     navigation.navigate(screen);
   };
   return (
-    // <ImageBackground source={imagePath.background2} style={{flex:1}}>
     <LinearGradient
-      // colors={[colors.offgreen, colors.offgreen, colors.offgreen]}
       colors={[colors.white, colors.white, colors.white]}
       style={styles.linearGradient}>
       <WrapperContainer>
@@ -41,10 +39,6 @@ const Signup = ({navigation}) => {
           }}
         />
         <View style={styles.mainview}>
-          <View style={styles.container}>
-            {/* <Text style={styles.heading}>Welcome back</Text> */}
-            {/* <Text style={styles.maintext}>Login to your account</Text> */}
-          </View>
           <TextInputWithLabel
             placeholder={strings.EMAIL_ADDRESS}
             extraStyle={{width: width - 60, alignSelf: 'center'}}
@@ -87,14 +81,9 @@ const Signup = ({navigation}) => {
         </View>
       </WrapperContainer>
     </LinearGradient>
-    // </ImageBackground>
   );
 };
-
 const styles = StyleSheet.create({
-  mainview: {
-    // backgroundColor:colors.lightgrey,
-  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -114,9 +103,6 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontFamily: fontFamily.medium,
     fontSize: moderateScale(14),
-  },
-  button: {
-    // alignSelf: 'center',
   },
   linearGradient: {
     flex: 1,

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
-import colors from '../../styles/colors';
 
 const Request = ({horizontal, vertical, styling = {}}) => {
   const [images, setImages] = useState([
@@ -16,7 +15,6 @@ const Request = ({horizontal, vertical, styling = {}}) => {
     {
       src: require('../../assets/images/Jones.png'),
       text: 'Marry Olsen react for story Killin chillin to your timeline',
-     
     },
     {
       src: require('../../assets/images/Leis.png'),
@@ -26,7 +24,7 @@ const Request = ({horizontal, vertical, styling = {}}) => {
     {
       src: require('../../assets/images/Leis.png'),
       text: 'Leis like your story',
-    }, 
+    },
     {
       src: require('../../assets/images/Leis.png'),
       text: 'Leis like your story',
@@ -49,10 +47,17 @@ const Request = ({horizontal, vertical, styling = {}}) => {
     <View>
       <View>
         <FlatList
-         ItemSeparatorComponent={(props) => {
-          console.log('props', props); // here you can access the trailingItem with props.trailingItem
-          return (<View style={{height: 1, backgroundColor: props.highlighted ? 'green' : 'grey'}} />);
-        }}
+          ItemSeparatorComponent={props => {
+            console.log('props', props); // here you can access the trailingItem with props.trailingItem
+            return (
+              <View
+                style={{
+                  height: 1,
+                  backgroundColor: props.highlighted ? 'green' : 'grey',
+                }}
+              />
+            );
+          }}
           horizontal={horizontal}
           vertical={vertical}
           showsHorizontalScrollIndicator={false}

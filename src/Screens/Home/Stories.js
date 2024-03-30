@@ -24,7 +24,6 @@ const Stories = ({navigation, horizontal, vertical, styling = {}}) => {
       />
     </View>
   );
-
   return (
     <View>
       <View>

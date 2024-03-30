@@ -1,6 +1,6 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import ButtonComp from '../../Components/ButtonComp';
 import WrapperContainer from '../../Components/WrapperContainer';
 import navigationStrings from '../../constants/navigationStrings';
@@ -8,25 +8,24 @@ import colors from '../../styles/colors';
 
 // create a component
 const OnBoarding = ({navigation}) => {
-    return (
-        <WrapperContainer>
-        <View style={styles.container}>
-            <ButtonComp 
-                btnText='Go to Initial Auth Screen'
-                btnTextStyle={{color:colors.white}}
-                onPress={()=>navigation.navigate(navigationStrings.INITIAL_AUTH)}
-            />
-        </View>
-        </WrapperContainer>
-    );
+  return (
+    <WrapperContainer>
+      <View style={styles.container}>
+        <ButtonComp
+          btnText="Go to Initial Auth Screen"
+          btnTextStyle={{color: colors.white}}
+          onPress={() => navigation.navigate(navigationStrings.INITIAL_AUTH)}
+        />
+      </View>
+    </WrapperContainer>
+  );
 };
 
 // define your styles
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-    },
+  container: {
+    flex: 1,
+  },
 });
 
 //make this component available to the app

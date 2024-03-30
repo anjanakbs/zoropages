@@ -13,7 +13,6 @@ export default {
   backicon:require('../assets/images/backicon.png'),
 
   /*************** Home Page Icon/images *********/
-  Cameraicon:require('../assets/images/Cameraicon.png'),
   Searchicon:require('../assets/images/Searchicon.png'),
   jack:require('../assets/images/jack.png'),
   Jones:require('../assets/images/Jones.png'),
@@ -25,36 +24,38 @@ export default {
   lastpost:require('../assets/images/lastpost.png'),
   latest:require('../assets/images/latest.png'),
   logo: require('../assets/images/logo.png'),
-  modal2:require('../assets/images/modal2.png'),
-  modal3:require('../assets/images/modal3.png'),
-  modalimage:require('../assets/images/modalimage.png'),
-  modalimage2:require('../assets/images/modalimage2.png'),
   Dog:require('../assets/images/Dog.png'),
   waterfal:require('../assets/images/waterfal.png'),
 travel:require('../assets/images/travel.png'),
+image:require('../assets/images/image.png'),
+modal:require('../assets/images/modal.png'),
+
 
 
 /***** Like Comment Share */
 Like :require('../assets/images/like.png'),
 Like2:require('../assets/images/Like2.png'),
 Like3:require('../assets/images/like3.png'),
+Like4:require('../assets/images/like4.png'),
 comment:require('../assets/images/comment.png'),
 comment2:require('../assets/images/Comment2.png'),
 comment3:require('../assets/images/comment3.png'),
 share:require('../assets/images/share.png'),
 share2:require('../assets/images/Share2.png'),
 share3:require('../assets/images/share3.png'),
+share4:require('../assets/images/share4.png'),
+share5:require('../assets/images/share5.png'),
 facebook:require('../assets/images/ic_facebook.png'),
 twitter:require('../assets/images/ic_twitter.png'),
 google2:require('../assets/images/google2.png'),
 Plus:require('../assets/images/Plus.png'),
 Save:require('../assets/images/Save.png'),
 chat:require('../assets/images/chat.png'),
-
+moreicon:require('../assets/images/moreicon.png'),
 //**** Post photo, video  */
 posticon:require('../assets/images/Posticon.png'),
 photo:require('../assets/images/photo.png'),
-Video:require('../assets/images/video.png'),
+Dogvideo:require('../assets/images/dogvideo.mp4')
 };
 
 

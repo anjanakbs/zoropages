@@ -6,15 +6,8 @@ import {
 import colors from '../styles/colors';
 import {Image, StyleSheet} from 'react-native';
 import {Home, Search, Post, Notification, Profile} from '../Screens';
-import {
-  moderateScale,
-  width,
-  moderateScaleVertical,
-} from '../styles/responsiveSize';
 import imagePath from '../constants/imagePath';
-import strings from '../constants/lang';
 import navigationStrings from '../constants/navigationStrings';
-import MaterialTopTab from '../Components/MaterialTopTab';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -76,10 +69,12 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({focused}) => {
             return focused ? (
-              <Image source={imagePath.active_message}
-              style={{
-                tintColor: colors.darkgreen,
-              }} />
+              <Image
+                source={imagePath.active_message}
+                style={{
+                  tintColor: colors.darkgreen,
+                }}
+              />
             ) : (
               <Image source={imagePath.inactive_message} />
             );
@@ -92,27 +87,30 @@ const TabRoutes = props => {
         options={{
           tabBarIcon: ({focused}) => {
             return focused ? (
-              <Image source={imagePath.active_notification}
-              style={{
-                tintColor: colors.darkgreen,
-              }} />
+              <Image
+                source={imagePath.active_notification}
+                style={{
+                  tintColor: colors.darkgreen,
+                }}
+              />
             ) : (
               <Image source={imagePath.inactive_notification} />
             );
           },
         }}
       />
-     
       <BottomTab.Screen
         name={navigationStrings.PROFILE}
         component={Profile}
         options={{
           tabBarIcon: ({focused}) => {
             return focused ? (
-              <Image source={imagePath.active_profile} 
-              style={{
-                tintColor: colors.darkgreen,
-              }}/>
+              <Image
+                source={imagePath.active_profile}
+                style={{
+                  tintColor: colors.darkgreen,
+                }}
+              />
             ) : (
               <Image source={imagePath.inactive_profile} />
             );

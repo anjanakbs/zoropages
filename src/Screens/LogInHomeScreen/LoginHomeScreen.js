@@ -27,9 +27,7 @@ const LoginHomeScreen = ({navigation}) => {
     navigation.navigate(screen);
   };
   return (
-    // <ImageBackground source={imagePath.modal3} style={{flex:1,}} >
     <LinearGradient
-      //  colors={[colors.lightgrey, colors.lightgrey, colors.lightgrey]}
       colors={[colors.white, colors.white, colors.white]}
       style={styles.linearGradient}>
       <WrapperContainer>
@@ -71,23 +69,8 @@ const LoginHomeScreen = ({navigation}) => {
             />
           </View>
         </View>
-        {/* <View style={styles.loginwith}>
-        <View style={styles.image}>
-          <View style={styles.facebook}>
-            <Image source={imagePath.facebook}  />
-          </View>
-          <View style={styles.facebook}>
-            <Image source={imagePath.twitter} style={{height:45,width:45}} />
-          </View>
-          <View style={styles.facebook}>
-            <Image source={imagePath.google2} />
-          </View>
-        </View>
-      </View> */}
       </WrapperContainer>
     </LinearGradient>
-
-    /* </ImageBackground> */
   );
 };
 export default LoginHomeScreen;
@@ -96,7 +79,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    // marginTop:height/9
   },
   heading: {
     textAlign: 'center',

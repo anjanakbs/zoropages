@@ -17,7 +17,6 @@ const ForgotPassword = ({navigation}) => {
   };
   return (
     <LinearGradient
-      // colors={[colors.offgreen, colors.white, colors.white]}
       colors={[colors.white, colors.white, colors.white]}
       style={styles.linearGradient}>
       <WrapperContainer>

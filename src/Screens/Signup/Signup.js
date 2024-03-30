@@ -10,15 +10,13 @@ import imagePath from '../../constants/imagePath';
 import colors from '../../styles/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import fontFamily from '../../styles/fontFamily';
+import strings from '../../constants/lang';
 
 const OtpVerification = ({navigation}) => {
   const goToScreen = screen => {
     navigation.navigate(screen);
   };
   return (
-    // <LinearGradient
-    //   colors={['#5d9475', colors.white, colors.white]}
-    //   style={styles.linearGradient}>
     <WrapperContainer style={{}}>
       <HeaderComp leftIcon={imagePath.backicon} />
       <Image
@@ -35,23 +33,23 @@ const OtpVerification = ({navigation}) => {
       </View>
       <View style={styles.inputview}>
         <TextInputWithLabel
-          placeholder="Username"
+          placeholder={strings.USER_NAME}
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
         <TextInputWithLabel
-          placeholder="Email"
+          placeholder={strings.EMAIL_ADDRESS}
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
         <TextInputWithLabel
-          placeholder="Phone"
+          placeholder={strings.Phone_Number}
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
         <TextInputWithLabel
-          placeholder="Date Of Birth"
+          placeholder={strings.D_O_B}
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
         <TextInputWithLabel
-          placeholder="Password"
+          placeholder={strings.PASSWORD}
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
       </View>
@@ -71,7 +69,6 @@ const OtpVerification = ({navigation}) => {
         />
       </View>
     </WrapperContainer>
-    // </LinearGradient>
   );
 };
 

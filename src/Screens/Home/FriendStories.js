@@ -15,7 +15,7 @@ import imagePath from '../../constants/imagePath';
 import Storycomponent from '../../Components/Storycomponent';
 import HomeCard from '../../Components/HomeCard';
 import {moderateScale, textScale} from '../../styles/responsiveSize';
-import FlatImage from './FlatImage';
+import FlatImage from './Suggestimage';
 
 const FriendStories = ({navigation}) => {
   const goToScreen = screen => {

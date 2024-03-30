@@ -100,5 +100,6 @@ const styles = StyleSheet.create({
   },
   edittext: {
     fontFamily: fontFamily.medium,
-     fontSize: moderateScale(15)},
+    fontSize: moderateScale(15),
+  },
 });
