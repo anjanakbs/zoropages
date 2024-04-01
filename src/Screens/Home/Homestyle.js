@@ -34,10 +34,21 @@ const styles = StyleSheet.create({
   follow: {
     fontSize: textScale(18),
     marginTop: 10,
-    // color:colors.theme
+       marginRight:25,
+       textAlign: 'center',
+       fontSize: textScale(14),
+       borderWidth: 1,
+       borderRadius: 10,
+       borderColor: colors.lightgrey,
+       height: 30,
+       width: 90,
+       paddingTop: 5,
+       color: colors.black,
+       backgroundColor:colors.lightgrey
   },
   imageview: {
     flexDirection: 'row',
+    marginBottom:moderateScale(5)
   },
   following: {
     marginTop: 15,

@@ -12,7 +12,7 @@ import {moderateScale, textScale} from '../../styles/responsiveSize';
 import colors from '../../styles/colors';
 // import styles from './Homestyle';
 
-const FlatImage = ({flatstyle = {}}) => {
+const FlatImage = ({flatstyle = {}, navigation}) => {
   const [flatimage, setFlatImage] = useState([
     {src: require('../../assets/images/latest.png'), text: 'Follow'},
     {src: require('../../assets/images/image.png'), text: 'Follow'},
@@ -33,7 +33,12 @@ const FlatImage = ({flatstyle = {}}) => {
         }}
       />
       <View style={{}}>
-        <Text style={styles.followtext}>Follow</Text>
+       <TouchableOpacity>
+        <Text
+          style={styles.followtext}>    
+          Follow
+        </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

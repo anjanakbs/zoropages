@@ -125,7 +125,7 @@ const SearchList = ({navigation}) => {
 export default SearchList;
 const styles = StyleSheet.create({
   follow: {
-    backgroundColor: colors.theme,
+    backgroundColor: colors.darkgreen,
     color: colors.white,
     height: 27,
     width: 80,

@@ -25,8 +25,8 @@ const Profile = ({navigation}) => {
         <Text style={styles.edittext}>Edit</Text>
       </View>
       <View style={{flexDirection: 'row'}}>
-        <Image source={imagePath.Leis} />
-        <View>
+        <Image source={imagePath.Marry} />
+        <View style={{alignSelf:'center',paddingLeft:5}}>
           <Text>#relax</Text>
           <Text>#travel</Text>
         </View>
@@ -40,14 +40,14 @@ const Profile = ({navigation}) => {
       </View>
       <View style={styles.line}></View>
       <View style={styles.posticon}>
-        <Image source={imagePath.posticon} />
-        <Image source={imagePath.photo} />
-        <Image source={imagePath.Video} />
+        <Image source={imagePath.posticon}/>
+        <Image source={imagePath.photo}/>
+        <Image source={imagePath.Reels}style={{height:30,width:30}}/>
       </View>
       <ScrollView>
         <View>
-          <HomeCard viewstyle={{marginTop: 10}} />
-          <HomeCard viewstyle={{marginTop: 10}} />
+          <HomeCard viewstyle={{marginTop: 20}} />
+          <HomeCard viewstyle={{marginTop: 20}} />
         </View>
       </ScrollView>
     </WrapperContainer>

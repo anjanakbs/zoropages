@@ -27,6 +27,7 @@ export default {
   Dog:require('../assets/images/Dog.png'),
   waterfal:require('../assets/images/waterfal.png'),
 travel:require('../assets/images/travel.png'),
+travel2:require('../assets/images/travel2.png'),
 image:require('../assets/images/image.png'),
 modal:require('../assets/images/modal.png'),
 
@@ -52,6 +53,7 @@ Plus:require('../assets/images/Plus.png'),
 Save:require('../assets/images/Save.png'),
 chat:require('../assets/images/chat.png'),
 moreicon:require('../assets/images/moreicon.png'),
+Reels:require('../assets/images/Reels.png'),
 //**** Post photo, video  */
 posticon:require('../assets/images/Posticon.png'),
 photo:require('../assets/images/photo.png'),

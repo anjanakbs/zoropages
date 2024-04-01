@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   clearall: {
-    color: colors.theme,
+    color: colors.darkgreen,
     fontFamily: fontFamily.medium,
     fontSize: textScale(20),
   },

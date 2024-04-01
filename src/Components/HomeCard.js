@@ -1,33 +1,45 @@
-import {View, Text, ImageBackground, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import React from 'react';
 import WrapperContainer from './WrapperContainer';
 import imagePath from '../constants/imagePath';
 import {textScale, width} from '../styles/responsiveSize';
 import styles from '../Screens/Home/Homestyle';
 import colors from '../styles/colors';
+import SlidePost from './SlidePost';
 
-const HomeCard = ({viewstyle = {}}) => {
+const HomeCard = ({
+  navigation,
+  viewstyle = {}
+}) => {
   return (
     <View style={{...viewstyle}}>
       <View style={styles.view1}>
         <View style={styles.imageview}>
+          <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
           <Image source={imagePath.Marry} />
+          </TouchableOpacity >
           <View style={{marginTop: 7, paddingLeft: 5}}>
             <Text style={{color: 'black'}}>Michael</Text>
             <Text style={{color: 'black'}}>2 hours</Text>
           </View>
-          <View style={{marginLeft: width / 2.2, flexDirection: 'row'}}>
+          <View style={{marginLeft: width / 3.5, flexDirection: 'row',}}>
             <Text style={styles.follow}>Follow</Text>
+            <TouchableOpacity >
             <Image
               source={imagePath.moreicon}
-              style={{height: 22, width: 15, marginTop: 13}}
+              style={{height: 22, width: 15, marginTop: 13,}}
             />
+            </TouchableOpacity>
           </View>
         </View>
-        <ImageBackground
-          source={imagePath.travel}
-          resizeMode="cover"
-          style={styles.imagebackground}></ImageBackground>
+          <SlidePost/>
         <View style={styles.comment}>
           <View style={{flexDirection: 'row', marginTop: 8}}>
             <Text style={styles.relax}>{`${'#relax'}, ${'#travel'}`} </Text>

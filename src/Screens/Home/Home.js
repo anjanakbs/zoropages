@@ -28,13 +28,13 @@ const Home = ({navigation}) => {
           <Image
             source={imagePath.inactive_notification}
             style={{height: 22, width: 22}}
-            tintColor={colors.theme}
+            tintColor={colors.darkgreen}
           />
           <View style={{marginLeft: 20,}}>
             <Image
               source={imagePath.inactive_message}
               style={{height: 22, width: 22}}
-              tintColor={colors.theme}
+              tintColor={colors.darkgreen}
             />
           </View>
         </View>
@@ -43,8 +43,8 @@ const Home = ({navigation}) => {
         <Stories horizontal navigation={navigation} />
       </View>
       <ScrollView>
-        <HomeCard />
-        <Suggestimage />
+        <HomeCard  navigation={navigation} />
+        <Suggestimage navigation={navigation}/>
         <VideoComponent />
       </ScrollView>
     </WrapperContainer>

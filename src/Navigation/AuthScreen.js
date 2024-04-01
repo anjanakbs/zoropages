@@ -7,6 +7,7 @@ import {
   OtpVerification,
   ForgotPassword,
   OnBoarding,
+  Profile,
 } from '../Screens';
 import TabRoutes from './TabRoutes';
 import LoginHomeScreen from '../Screens/LogInHomeScreen/LoginHomeScreen';
@@ -15,6 +16,7 @@ import Popular from '../Screens/Home/Popular';
 import SearchPeople from '../Screens/SearchFriend/SearchPeople';
 import MaterialTopTab from '../Components/MaterialTopTab';
 import Following from '../Screens/SearchFriend/Following';
+import BottomSheetComp from '../Components/BottomSheetComp';
 
 export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
@@ -90,7 +92,11 @@ export default function (Stack, isFirstTime) {
         component={Following}
         options={{headerShown: false}}
       />
-      
+      <Stack.Screen
+        name={navigationStrings.BottomSheetComp}
+        component={BottomSheetComp}
+        options={{headerShown: false}}
+      />
     </>
   );
 }

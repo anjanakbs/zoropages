@@ -20,4 +20,5 @@ export default {
     CATEGORIES:"categories",
     BOOK_SELECTIONS:"bookSelections",
     ANIMATION:"animation",
+    BottomSheetComp:"BottomSheetComp"
 }
