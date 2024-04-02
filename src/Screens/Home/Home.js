@@ -1,11 +1,7 @@
-import {
-  View,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {View, Image, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import imagePath from '../../constants/imagePath';
-import { width} from '../../styles/responsiveSize';
+import {width} from '../../styles/responsiveSize';
 import Stories from './Stories';
 import colors from '../../styles/colors';
 import styles from '../Home/Homestyle';
@@ -30,7 +26,7 @@ const Home = ({navigation}) => {
             style={{height: 22, width: 22}}
             tintColor={colors.darkgreen}
           />
-          <View style={{marginLeft: 20,}}>
+          <View style={{marginLeft: 20}}>
             <Image
               source={imagePath.inactive_message}
               style={{height: 22, width: 22}}
@@ -42,11 +38,13 @@ const Home = ({navigation}) => {
       <View>
         <Stories horizontal navigation={navigation} />
       </View>
-      <ScrollView>
+      <VideoComponent />
+
+      {/* <ScrollView>
         <HomeCard  navigation={navigation} />
         <Suggestimage navigation={navigation}/>
-        <VideoComponent />
-      </ScrollView>
+      </ScrollView> */}
+
     </WrapperContainer>
   );
 };
