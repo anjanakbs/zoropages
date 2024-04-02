@@ -14,32 +14,29 @@ import styles from '../Screens/Home/Homestyle';
 import colors from '../styles/colors';
 import SlidePost from './SlidePost';
 
-const HomeCard = ({
-  navigation,
-  viewstyle = {}
-}) => {
+const HomeCard = ({navigation, viewstyle = {}}) => {
   return (
     <View style={{...viewstyle}}>
       <View style={styles.view1}>
         <View style={styles.imageview}>
-          <TouchableOpacity onPress={()=>navigation.navigate('Profile')}>
-          <Image source={imagePath.Marry} />
-          </TouchableOpacity >
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+            <Image source={imagePath.Marry} />
+          </TouchableOpacity>
           <View style={{marginTop: 7, paddingLeft: 5}}>
             <Text style={{color: 'black'}}>Michael</Text>
             <Text style={{color: 'black'}}>2 hours</Text>
           </View>
-          <View style={{marginLeft: width / 3.5, flexDirection: 'row',}}>
+          <View style={{marginLeft: width / 3.5, flexDirection: 'row'}}>
             <Text style={styles.follow}>Follow</Text>
-            <TouchableOpacity >
-            <Image
-              source={imagePath.moreicon}
-              style={{height: 22, width: 15, marginTop: 13,}}
-            />
+            <TouchableOpacity>
+              <Image
+                source={imagePath.menu}
+                style={{height: 22, width: 15, marginTop: 13}}
+              />
             </TouchableOpacity>
           </View>
         </View>
-          <SlidePost/>
+        <SlidePost />
         <View style={styles.comment}>
           <View style={{flexDirection: 'row', marginTop: 8}}>
             <Text style={styles.relax}>{`${'#relax'}, ${'#travel'}`} </Text>

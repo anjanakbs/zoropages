@@ -5,13 +5,26 @@ import {
   TouchableOpacity,
   Image,
   Text,
+  Button,
 } from 'react-native';
 import React, {useState} from 'react';
 import Video from 'react-native-video';
 import {textScale, width} from '../styles/responsiveSize';
 import colors from '../styles/colors';
 import imagePath from '../constants/imagePath';
+import LinearGradient from 'react-native-linear-gradient';
 const VideoComponent = () => {
+  const[isFocus, setIsFocus]=useState(false)
+  const handleFocus = () =>{
+    setIsFocus(true);
+  };
+  const handleBlur = () =>{
+    setIsFocus(false);
+  };
+  const [isPaused, setIsPaused]= useState(false);
+  const togglePause =() =>{
+    setIsPaused(!isPaused)
+  }
   const [video, setvideo] = useState([
     {src: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'},
     {
@@ -22,25 +35,35 @@ const VideoComponent = () => {
     },
   ]);
   const renderItem = ({item, index, seprator}) => (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1,backgroundColor:colors.black}}>
       <View style={styles.videoview}>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Image source={imagePath.Marry} />
-        </TouchableOpacity>
         <View style={{marginTop: 7, paddingLeft: 5}}>
-          <Text style={{color: 'black'}}>Michael</Text>
-          <Text style={{color: 'black'}}>2 hours</Text>
+          <Text style={{color:colors.white}}>Michael</Text>
+          <Text style={{color: colors.white}}>2 hours</Text>
         </View>
-        <View style={{marginLeft: width / 3, flexDirection: 'row'}}>
+        <View style={{marginLeft: width /3.5, flexDirection: 'row'}}>
           <Text style={styles.follow}>Follow</Text>
+          <Image
+                source={imagePath.menu}
+                style={{height: 22, width: 15, marginTop: 13,}}
+                tintColor={colors.grey}
+              />
         </View>
       </View>
+     
+      {isFocus &&(
       <Video
         source={{uri: item.src}}
         style={styles.Video}
-        controls
         resizeMode={'cover'}
-      />
+        repeat={true} 
+        muted={true}
+        // controls={true}
+        paused = {isPaused}
+      />)}
+      {/* <Button title={isPaused ? 'play':'pause'}
+      onPress={togglePause}/> */}
     </View>
   );
   return (
@@ -51,14 +74,16 @@ const VideoComponent = () => {
         horizontal={false}
         showsHorizontalScrollIndicator={false}
       />
+       <Button title='Focus' onPress={handleFocus}/>
+      <Button title='Blur' onPress={handleBlur}/>
     </View>
   );
 };
 export default VideoComponent;
 const styles = StyleSheet.create({
   Video: {
-    width: width / 1.1,
-    height: 400,
+    width: width /1.1,
+    height: 600,
     marginTop: 10,
     marginLeft: 10,
     borderRadius: 10,
@@ -72,12 +97,16 @@ const styles = StyleSheet.create({
   },
   videoview: {
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 15,
+    position:'absolute',
+    top:1,
+    left:15,
+    zIndex:1
   },
   follow: {
     fontSize: textScale(18),
-    marginTop: 15,
-    marginRight: 25,
+    marginRight:10,
+    marginTop: 10,
     textAlign: 'center',
     fontSize: textScale(14),
     borderWidth: 1,
