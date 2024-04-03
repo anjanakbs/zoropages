@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 20,
     flexDirection: 'row',
-    marginTop: 10,
+    // marginTop: 10,
   },
   saveimage: {
     paddingLeft: width / 2.5,

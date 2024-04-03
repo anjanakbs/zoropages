@@ -34,6 +34,11 @@ export default function (Stack, isFirstTime) {
         component={InitialAuth}
         options={{headerShown: false, gestureEnabled:true }}
       /> */}
+      <Stack.Screen
+        name={navigationStrings.OTP_VERIFICATION}
+        component={OtpVerification}
+        options={{headerShown: false}}
+      />
        <Stack.Screen
         name={navigationStrings.LogInHomeScreen}
         component={LoginHomeScreen}
@@ -51,11 +56,11 @@ export default function (Stack, isFirstTime) {
         component={Signup}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name={navigationStrings.OTP_VERIFICATION}
         component={OtpVerification}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name={'TabRoutes'}
         component={TabRoutes}
