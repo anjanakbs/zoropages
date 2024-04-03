@@ -14,6 +14,7 @@ import VideoComponent from '../../Components/VideoComponent';
 const Home = ({navigation}) => {
   return (
     <WrapperContainer>
+      <ScrollView>
       <HeaderComp leftIcon={imagePath.backicon} />
       <View style={styles.mainView}>
         <Image
@@ -38,14 +39,13 @@ const Home = ({navigation}) => {
       <View>
         <Stories horizontal navigation={navigation} />
       </View>
+
+        {/* <HomeCard  navigation={navigation} />
+        <Suggestimage navigation={navigation}/> */}
       <VideoComponent />
-
-      {/* <ScrollView>
-        <HomeCard  navigation={navigation} />
-        <Suggestimage navigation={navigation}/>
-      </ScrollView> */}
-
+        </ScrollView>
     </WrapperContainer>
+
   );
 };
 export default Home;
