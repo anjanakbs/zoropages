@@ -47,8 +47,10 @@ const styles = StyleSheet.create({
        backgroundColor:colors.lightgrey
   },
   imageview: {
+    flex:1,
     flexDirection: 'row',
-    marginBottom:moderateScale(5)
+    justifyContent:'space-between',
+    marginBottom:moderateScale(5),
   },
   following: {
     marginTop: 15,
@@ -93,10 +95,10 @@ const styles = StyleSheet.create({
     marginRight: 25,
   },
   likeview: {
-    paddingLeft: 10,
     paddingRight: 20,
     flexDirection: 'row',
-    // marginTop: 10,
+    marginTop: 10,
+    marginLeft:10
   },
   saveimage: {
     paddingLeft: width / 2.5,

@@ -13,8 +13,9 @@ import VideoComponent from '../../Components/VideoComponent';
 
 const Home = ({navigation}) => {
   return (
-    <WrapperContainer>
-      {/* <ScrollView> */}
+    // <WrapperContainer>
+    <View style={{flex:1,marginTop:50,}}>
+      <View style={{padding:10}}>
       <HeaderComp leftIcon={imagePath.backicon} />
       <View style={styles.mainView}>
         <Image
@@ -34,17 +35,12 @@ const Home = ({navigation}) => {
               tintColor={colors.darkgreen}
             />
           </View>
+          </View>
         </View>
       </View>
-      <View>
-        <Stories horizontal navigation={navigation} />
+      <VideoComponent/>
       </View>
-
-        {/* <HomeCard  navigation={navigation} />
-        <Suggestimage navigation={navigation}/> */}
-      <VideoComponent navigation={navigation} />
-        {/* </ScrollView> */}
-    </WrapperContainer>
+    // </WrapperContainer>
 
   );
 };

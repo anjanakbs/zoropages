@@ -1,19 +1,20 @@
-import {View, Text, ImageBackground, FlatList} from 'react-native';
 import React, {useState} from 'react';
-import { height, width } from '../styles/responsiveSize';
+import {FlatList, Image, View} from 'react-native';
+import {height, width} from '../styles/responsiveSize';
 
-const SlidePost = () => {
-  const [slideimage, setSlideImage] = useState([
-    {src: require('../assets/images/travel.png')},
-    {src: require('../assets/images/travel2.png')},
-    {src: require('../assets/images/travel.png')},
-    {src: require('../assets/images/travel2.png')},
-  ]);
+const SlidePost = (props) => {
+  const [slideimage, setSlideImage] = useState(props?.imageUrl);
+
   const renderItem = ({item, index, seprator}) => (
     <View style={{flex: 1}}>
-      <ImageBackground
-        source={item.src}
-        style={{height: height / 4, width: width - 20, borderRadius:20,marginRight:10}}
+      <Image
+        source={{uri: item.src}}
+        style={{
+          height: height / 4,
+          width: width - 20,
+          borderRadius: 20,
+          marginRight: 10,
+        }}
       />
     </View>
   );
@@ -23,6 +24,7 @@ const SlidePost = () => {
         data={slideimage}
         renderItem={renderItem}
         horizontal={true}
+        pagingEnabled
         showsHorizontalScrollIndicator={false}
       />
     </View>

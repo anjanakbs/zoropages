@@ -11,8 +11,6 @@ import {
 } from '../Screens';
 import TabRoutes from './TabRoutes';
 import LoginHomeScreen from '../Screens/LogInHomeScreen/LoginHomeScreen';
-import FriendStories from '../Screens/Home/FriendStories';
-import Popular from '../Screens/Home/Popular';
 import SearchPeople from '../Screens/SearchFriend/SearchPeople';
 import MaterialTopTab from '../Components/MaterialTopTab';
 import Following from '../Screens/SearchFriend/Following';
@@ -34,11 +32,6 @@ export default function (Stack, isFirstTime) {
         component={InitialAuth}
         options={{headerShown: false, gestureEnabled:true }}
       /> */}
-      <Stack.Screen
-        name={navigationStrings.OTP_VERIFICATION}
-        component={OtpVerification}
-        options={{headerShown: false}}
-      />
        <Stack.Screen
         name={navigationStrings.LogInHomeScreen}
         component={LoginHomeScreen}
@@ -72,21 +65,13 @@ export default function (Stack, isFirstTime) {
         component={ForgotPassword}
         options={{headerShown: false}}
       />
-      <Stack.Screen
-        name={navigationStrings.FriendStories}
-        component={FriendStories}
-        options={{headerShown: false}}
-      />
+      
        <Stack.Screen
         name={navigationStrings.MaterialTopTab}
         component={MaterialTopTab}
         options={{headerShown: false}}
       />
-       <Stack.Screen
-        name={navigationStrings.Popular}
-        component={Popular}
-        options={{headerShown: false}}
-      />
+       
        <Stack.Screen
         name={navigationStrings.SearchPeople}
         component={SearchPeople}
