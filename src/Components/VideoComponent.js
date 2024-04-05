@@ -2,26 +2,32 @@ import React, {useState} from 'react';
 import {
   FlatList,
   Image,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import Video from 'react-native-video';
 import Stories from '../Screens/Home/Stories';
-import {
-  height,
-  width,
-} from '../styles/responsiveSize';
-import HomeCard from './HomeCard';
 import imagePath from '../constants/imagePath';
 import colors from '../styles/colors';
-import styles from './VideoStyles';
+import fontFamily from '../styles/fontFamily';
+import {
+  height,
+  moderateScale,
+  textScale,
+  width,
+} from '../styles/responsiveSize';
+import SlidePost from './SlidePost';
+import {useNavigation} from '@react-navigation/native';
+// import styles from './VideoStyles';
 const HeaderComponent = () => (
   <View>
     <Stories horizontal={true} />
   </View>
 );
-const VideoComponent = () => {
+const VideoComponent = ({navigation}) => {
+  console.log(navigation, 'navigation on video');
   const data = [
     {
       id: 0,
@@ -138,110 +144,83 @@ const VideoComponent = () => {
     console.log(viewableItems, 'viewableItemsviewableItems');
     if (viewableItems.length > 1 && viewableItems[1].item.type == 3) {
       setVisibleVideoId(viewableItems[1].item.id);
+
     } else {
       setVisibleVideoId(null);
     }
   };
+  const renderHeader = ({item}) => <HeaderComponent />;
   const renderItem = ({item}) => (
-    <View>
-      {item?.type == 1 ? (
-        <View style={styles.imagepostview}>
-          <View style={styles.imageview}>
-            <View style={{flexDirection:'row'}}>
-            <Image
-              source={{uri: item.src}}
-              style={{height: 50, width: 50, borderRadius: 25, marginLeft: 5}}
-            />
-            <Text style={styles.author}>{item.author}</Text>
-            </View>
-            <View style={styles.followview}>
-              <Text style={styles.Follow}>{item.Follow}</Text>
-              <Image source={imagePath.menu} style={styles.menuicon} />
-            </View>
-          </View>
+    <View style={styles.imagepostview}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <View style={{flexDirection: 'row'}}>
           <Image
-            source={{uri: item.imageUrl}}
+            source={{uri: item.src}}
             style={{
-              height: height / 2,
-              width: width,
-              resizeMode: 'cover',
+              height: 50,
+              width: 50,
+              borderRadius: 25,
+              margin: 5,
             }}
           />
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
-
-          <View style={{flexDirection: 'row', marginTop: 10}}>
-            <Image source={imagePath.Like} style={styles.icon} />
-            <Image source={imagePath.comment} style={styles.icon} />
-            <Image
-              source={imagePath.share5}
-              style={styles.icon}
-              tintColor={colors.darkgreen}
-            />
-            <Image source={imagePath.Save} style={styles.saveicon} />
-          </View>
-          <Text style={styles.Comment}>{item.Like}</Text>
-          <Text style={styles.Comment}>{item.Comment}</Text>
+          <Text style={styles.author}>{item.author}</Text>
         </View>
+        <View style={styles.followview}>
+          <Text style={styles.Follow}>{item.Follow}</Text>
+          <Image source={imagePath.menu} style={styles.menuicon} />
+        </View>
+      </View>
+      {item?.type == 1 ? (
+        <Image
+          source={{uri: item.imageUrl}}
+          style={{
+            height: height / 2,
+            width: width,
+            resizeMode: 'cover',
+          }}
+        />
       ) : item?.type == 2 ? (
-        <HomeCard imageUrl={item.imageUrl} />
+        <SlidePost imageUrl={item.imageUrl} />
       ) : (
-        <TouchableOpacity onPress={togglePlayback}>
-          <View style={styles.videopostview}>
-            <View style={styles.imageview}>
-              <View style={{flexDirection:'row', }}> 
-              <Image
-                source={{uri: item.src}}
-                style={{
-                  height: 50,
-                  width: 50,
-                  borderRadius: 25,
-                  marginLeft: 10,
-                 
-                }}
-              />
-              <Text style={styles.author}>{item.author}</Text>
-              </View>
-              <View style={styles.videofollow}>
-                <Text style={styles.Follow}>{item.Follow}</Text>
-                <Image
-                  source={imagePath.menu}
-                  style={{height: 18, width: 20, marginTop: 14}}
-                />
-              </View>
-            </View>
-            <Video
-              source={{uri: item.videoUrl}}
-              style={styles.video}
-              paused={visibleVideoId !== item.id}
-              volume={isPlaying ? 1.0 : 0.0}
-              resizeMode="cover"
-              repeat={true}
-            />
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
-            <View style={{flexDirection: 'row', marginTop: 10}}>
-              <Image source={imagePath.Like} style={styles.icon} />
-              <Image source={imagePath.comment} style={styles.icon} />
-              <Image
-                source={imagePath.share5}
-                style={styles.icon}
-                tintColor={colors.darkgreen}
-              />
-              <Image source={imagePath.Save} style={styles.saveicon} />
-            </View>
-            <Text style={styles.Comment}>{item.Like} </Text>
-            <Text style={styles.Comment}>{item.Comment} </Text>
-          </View>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Reels', {videoUrl: item.videoUrl})
+          }>
+          <Video
+            source={{uri: item.videoUrl}}
+            style={styles.video}
+            paused={visibleVideoId !== item.id}
+            volume={isPlaying ? 1.0 : 0.4}
+            resizeMode="contain"
+            repeat={true}
+          />
         </TouchableOpacity>
       )}
+      <View style={{marginBottom: 10, padding: 5}}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.description}>{item.description}</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{flexDirection: 'row'}}>
+            <Image source={imagePath.Like2} style={styles.icon} />
+            <Image source={imagePath.comment3} style={styles.icon} />
+            <Image
+              source={imagePath.share4}
+              style={styles.icon}
+              // tintColor={colors.darkgreen}
+            />
+          </View>
+          <Image source={imagePath.Save} style={styles.saveicon} />
+        </View>
+        <Text style={styles.Comment}>{item.Like}</Text>
+        <Text style={styles.Comment}>{item.Comment}</Text>
+      </View>
     </View>
   );
-  const renderHeader = ({item}) => <HeaderComponent />;
   return (
     <View
       style={{
         flex: 1,
+        // margin:10
       }}>
       <FlatList
         data={data}
@@ -263,3 +242,96 @@ const VideoComponent = () => {
   );
 };
 export default VideoComponent;
+const styles = StyleSheet.create({
+  video: {
+    width: width,
+    height: height / 2 - 50,
+    marginTop: 10,
+  },
+  imagepostview: {
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 2,
+    backgroundColor: colors.white,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  videopostview: {
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 2,
+    backgroundColor: colors.white,
+    height: height / 1 + 90,
+    width: width,
+    marginBottom: 10,
+    marginBottom: 10,
+  },
+  imageview: {
+    flexDirection: 'row',
+    marginBottom: moderateScale(5),
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontSize: moderateScale(20),
+    fontFamily: fontFamily.bold,
+    color: colors.darkgreen,
+  },
+  description: {
+    fontSize: moderateScale(16),
+    fontFamily: fontFamily.regular,
+  },
+  Comment: {
+    fontSize: moderateScale(15),
+    fontFamily: fontFamily.medium,
+    marginTop: 5,
+  },
+  author: {
+    fontSize: moderateScale(20),
+    fontFamily: fontFamily.bold,
+    marginTop: 10,
+    paddingLeft: 8,
+  },
+  followview: {
+    flexDirection: 'row',
+  },
+  Follow: {
+    fontSize: textScale(18),
+    marginTop: 10,
+    marginRight: 20,
+    textAlign: 'center',
+    fontSize: textScale(14),
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: colors.lightgrey,
+    height: 30,
+    width: 80,
+    paddingTop: 5,
+    color: colors.black,
+    backgroundColor: colors.lightgrey,
+  },
+  videofollow: {
+    flexDirection: 'row',
+  },
+  icon: {
+    height: 28,
+    width: 28,
+    marginLeft: 10,
+    marginTop: 9,
+  },
+  menuicon: {
+    height: 18,
+    width: 20,
+    marginTop: 13,
+  },
+  saveicon: {
+    height: 28,
+    width: 28,
+    // tintColor: colors.darkgreen,
+    marginTop: 10,
+    marginRight: 10,
+  },
+});

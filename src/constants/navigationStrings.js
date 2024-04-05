@@ -18,5 +18,6 @@ export default {
     CATEGORIES:"categories",
     BOOK_SELECTIONS:"bookSelections",
     ANIMATION:"animation",
-    BottomSheetComp:"BottomSheetComp"
+    BottomSheetComp:"BottomSheetComp",
+    Reels:'Reels'
 }

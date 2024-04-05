@@ -66,6 +66,7 @@ const OtpVerification = ({navigation}) => {
           }}
           btnTextStyle={{color: colors.white, fontFamily: fontFamily.bold}}
           onPress={() => goToScreen(navigationStrings.TAB_ROUTES)}
+
         />
       </View>
     </WrapperContainer>

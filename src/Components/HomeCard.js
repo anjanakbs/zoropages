@@ -14,17 +14,18 @@ import styles from '../Screens/Home/Homestyle';
 import colors from '../styles/colors';
 import SlidePost from './SlidePost';
 
-const HomeCard = ({navigation, imageUrl,viewstyle = {}}) => {
-  console.log(imageUrl,'hlo')
+const HomeCard = ({navigation, imageUrl,item,viewstyle = {}}) => {
+  console.log(item,'hlo')
   return (
     <View style={{...viewstyle}}>
-      <View style={styles.view1}>
+
+ <View style={styles.view1}>
         <View style={styles.imageview}>
           <View style={{flexDirection:'row'}}>
           <TouchableOpacity 
           style={{marginRight:8}}
           onPress={() => navigation.navigate('Profile')}>
-            <Image source={imagePath.Marry} />
+            <Image source={{}} />
           </TouchableOpacity>
           <View style={{marginTop: 7, paddingLeft: 5}}>
             <Text style={{color: 'black'}}>Michael</Text>
@@ -85,7 +86,7 @@ const HomeCard = ({navigation, imageUrl,viewstyle = {}}) => {
           <Text style={{fontSize: textScale(15)}}>10000 Likes</Text>
         </View>
         <Text style={{fontSize: textScale(15)}}>View all 3,027 comment</Text>
-      </View>
+      </View> 
     </View>
   );
 };

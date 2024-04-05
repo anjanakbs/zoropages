@@ -8,9 +8,22 @@ import {Image, StyleSheet} from 'react-native';
 import {Home, Search, Post, Notification, Profile} from '../Screens';
 import imagePath from '../constants/imagePath';
 import navigationStrings from '../constants/navigationStrings';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import Reels from '../Screens/Reels/Reels';
 
 const BottomTab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
+function HomeStack() {
+  <Stack.Navigator 
+  initialRouteName={'Home'}
+  
+  >
+    <Stack.Screen name="Home" component={Home} />
+    {/* <Stack.Screen name="Reels" component={Reels} /> */}
+  </Stack.Navigator>;
+}
 const TabRoutes = props => {
   return (
     <BottomTab.Navigator
@@ -19,7 +32,7 @@ const TabRoutes = props => {
           <BottomTabBar {...tabsProps} />
         </>
       )}
-      initialRouteName={navigationStrings.HOME}
+      initialRouteName={'Home'}
       screenOptions={{
         headerShown: false,
         style: styles.customBottomtabsStyle,
@@ -64,19 +77,28 @@ const TabRoutes = props => {
         }}
       />
       <BottomTab.Screen
-        name={navigationStrings.POST}
-        component={Post}
+        name={navigationStrings.Reels}
+        component={Reels}
         options={{
           tabBarIcon: ({focused}) => {
             return focused ? (
               <Image
-                source={imagePath.active_message}
+                source={imagePath.Reels}
                 style={{
                   tintColor: colors.darkgreen,
+                  height: 20,
+                  width: 20,
                 }}
               />
             ) : (
-              <Image source={imagePath.inactive_message} />
+              <Image
+                source={imagePath.Reels}
+                style={{
+                  // tintColor: colors.darkgreen,
+                  height: 20,
+                  width: 20,
+                }}
+              />
             );
           },
         }}
