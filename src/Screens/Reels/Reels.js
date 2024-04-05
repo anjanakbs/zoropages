@@ -4,53 +4,30 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import HeaderComp from '../../Components/HeaderComp';
 import imagePath from '../../constants/imagePath';
 import Video from 'react-native-video';
-import { height, width } from '../../styles/responsiveSize';
+import { height, textScale, width } from '../../styles/responsiveSize';
+import colors from '../../styles/colors';
+import fontFamily from '../../styles/fontFamily';
 
 const Reels = ({navigation,route}) => {
-    console.log(route,'hlo')
-//   const [Videos, setVideos] = useState([
-//     {
-//         Videourl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-//     },
-//     {
-//         Videourl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-//       },
-//       {
-//         Videourl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-//       },
-//   ]);
-//   const renderItem = ({item}) => (
-//     <View style={{marginBottom:10}}>
-//         <Video
-//          source={{uri: item.Videourl}}
-//          style={styles.videourlstyle}
-//          repeat={true}
-//          resizeMode={'cover'}
-//          />
-//     </View>
-//   )
   return (
     <WrapperContainer>
-    <View style={{flex:1}}>
+    <View style={{flex:1,}}>
+      <View style={{flexDirection:'row'}}>
       <HeaderComp leftIcon={imagePath.backicon} />
-        {/* <FlatList
-        data={Videos}
-        renderItem={renderItem}
-        /> */}
+      <Text style={{fontSize:textScale(20),fontFamily:fontFamily.bold,marginTop:8,marginLeft:30}}>
+        Videos</Text>
+      </View>
         <Video 
         source={{uri:route.params.videoUrl}}
         style={styles.videourlstyle}/>
       </View>
-     
      </WrapperContainer>
   );
 };
-
 export default Reels;
 const styles = StyleSheet.create({
     videourlstyle:{
-        height:height,
-        width:width,
-        // resizeMode:'center'
+        height:800,
+        width:width/1.1+20,
     }
 })

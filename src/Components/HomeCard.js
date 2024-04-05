@@ -11,7 +11,6 @@ import WrapperContainer from './WrapperContainer';
 import imagePath from '../constants/imagePath';
 import {textScale, width} from '../styles/responsiveSize';
 import styles from '../Screens/Home/Homestyle';
-import colors from '../styles/colors';
 import SlidePost from './SlidePost';
 
 const HomeCard = ({navigation, imageUrl,item,viewstyle = {}}) => {
@@ -59,25 +58,21 @@ const HomeCard = ({navigation, imageUrl,item,viewstyle = {}}) => {
           </View>
           <View style={styles.likeview}>      
             <Image
-              source={imagePath.Like}
+              source={imagePath.Like2}
               style={styles.likeimage}
-              tintColor={colors.darkgreen}
             />
             <Image
-              source={imagePath.comment}
+              source={imagePath.comment3}
               style={styles.likeimage}
-              tintColor={colors.darkgreen}
             />
             <Image
               source={imagePath.share5}
               style={styles.likeimage}
-              tintColor={colors.darkgreen}
             />
             <View style={styles.saveimage}>
               <Image
                 source={imagePath.Save}
                 style={{height: 25, width: 25}}
-                tintColor={colors.darkgreen}
               />
             </View>
           </View>

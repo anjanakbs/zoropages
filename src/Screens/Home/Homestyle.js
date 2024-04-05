@@ -39,12 +39,12 @@ const styles = StyleSheet.create({
        fontSize: textScale(14),
        borderWidth: 1,
        borderRadius: 10,
-       borderColor: colors.lightgrey,
+       borderColor: colors.black,
        height: 30,
-       width: 90,
+       width: 85,
        paddingTop: 5,
        color: colors.black,
-       backgroundColor:colors.lightgrey
+      //  backgroundColor:colors.lightgrey
   },
   imageview: {
     flex:1,

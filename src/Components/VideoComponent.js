@@ -135,16 +135,21 @@ const VideoComponent = ({navigation}) => {
     },
   ];
   const [isPlaying, setIsPlaying] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(0);
+
   const togglePlayback = () => {
     setIsPlaying(prevIsPlaying => !prevIsPlaying);
   };
   const [visibleVideoId, setVisibleVideoId] = useState(null);
-
+  // const handleViewableItemsChanged = ({ viewableItems }) => {
+  //   if (viewableItems.length > 0) {
+  //     setFocusedIndex(viewableItems[0].index);
+  //   }
+  // };
   const handleViewableItemsChanged = ({viewableItems}) => {
     console.log(viewableItems, 'viewableItemsviewableItems');
     if (viewableItems.length > 1 && viewableItems[1].item.type == 3) {
       setVisibleVideoId(viewableItems[1].item.id);
-
     } else {
       setVisibleVideoId(null);
     }
@@ -183,13 +188,12 @@ const VideoComponent = ({navigation}) => {
         <SlidePost imageUrl={item.imageUrl} />
       ) : (
         <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Reels', {videoUrl: item.videoUrl})
-          }>
+          onPress={() => navigation.navigate('Reels', {videoUrl: item.videoUrl}) }>
           <Video
             source={{uri: item.videoUrl}}
             style={styles.video}
             paused={visibleVideoId !== item.id}
+            muted={visibleVideoId != item.id}
             volume={isPlaying ? 1.0 : 0.4}
             resizeMode="contain"
             repeat={true}
