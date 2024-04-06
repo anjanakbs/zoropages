@@ -9,12 +9,12 @@ import SearchList from '../SearchFriend/SearchList';
 import Message from '../Post/Message';
 
 // create a component
-const Post = () => {
+const Post = ({navigation}) => {
   return (
     <WrapperContainer>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <HeaderComp leftIcon={imagePath.backicon} />
-        <Image source={imagePath.Plus} />
+        <Image source={imagePath.Plus}style={{marginTop:13}} />
       </View>
       <View style={styles.container}>
         <Storycomponent />

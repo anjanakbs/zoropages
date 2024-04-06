@@ -46,7 +46,7 @@ const Storycomponent = () => {
 export default Storycomponent
 const styles = StyleSheet.create({
   itemtext:{
-    fontFamily:fontFamily.bold,
+    fontFamily:fontFamily.medium,
     fontSize:textScale(16),
     textAlign:'center'
   }

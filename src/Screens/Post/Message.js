@@ -10,57 +10,49 @@ const SearchList = () => {
       src: require('../../assets/images/Marry.png'),
       text1: 'Marry Olsen',
       text2: ' You are my good friend ..........',
-      text3: '1 hours',
-      text4: 2,
+     
     },
     {
       src: require('../../assets/images/jack.png'),
       text1: 'Jack Owen',
       text2: ' You are my good friend ..........',
-      text3: '90 mints',
-      text4: 2,
+     
     },
     {
       src: require('../../assets/images/Miranda.png'),
       text1: 'Miranda West',
       text2: ' You are my good friend ..........',
-      text3: 'Just Now',
-      text4: 2,
+    
     },
     {
       src: require('../../assets/images/Jones.png'),
       text1: 'Michael Jones',
       text2: ' You Have Friends an facebook',
-      text3: '8 mints',
-      text4: 6,
+      
     },
     {
       src: require('../../assets/images/Leis.png'),
       text1: 'Leis Conner',
       text2: ' By see You soon >>>>>>>>>>',
-      text3: '5 mints',
-      text4: 1,
+      
     },
     {
       src: require('../../assets/images/Stream.png'),
       text1: 'Stream Kiens',
       text2: ' You Have Friends an facebook',
-      text3: '2 mints',
-      text4: 6,
+     
     },
     {
       src: require('../../assets/images/Marry.png'),
       text1: 'Marry Olsen',
       text2: 'You know,Ive had some Beers',
-      text3: '5 mints',
-      text4: 2,
+     
     },
     {
       src: require('../../assets/images/Marry.png'),
       text1: 'Marry Olsen',
       text2: 'You know,Ive had some Beers',
-      text3: '10 mints',
-      text4: 2,
+     
     },
   ]);
 
@@ -91,7 +83,7 @@ const SearchList = () => {
     <View>
       <FlatList
         ItemSeparatorComponent={props => {
-          console.log('props', props); // here you can access the trailingItem with props.trailingItem
+          console.log('props', props); 
           return (
             <View
               style={{
@@ -117,9 +109,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fontFamily.bold,
   },
-  mtext: {
-    backgroundColor: colors.theme,
-    textAlign: 'center',
-    color: colors.white,
-  },
+  // mtext: {
+  //   backgroundColor: colors.theme,
+  //   textAlign: 'center',
+  //   color: colors.white,
+  // },
 });

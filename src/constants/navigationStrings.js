@@ -12,12 +12,13 @@ export default {
     Following:'Following',
     SEARCH:"Search",
     SearchPeople:'SearchPeople',
-    POST:"message",
+    POST:'Post',
     NOTIFICATION:"Notification",
     PROFILE:"Profile",
     CATEGORIES:"categories",
     BOOK_SELECTIONS:"bookSelections",
     ANIMATION:"animation",
     BottomSheetComp:"BottomSheetComp",
-    Reels:'Reels'
+    Reels:'Reels',
+    ModalSheet:'ModalSheet'
 }

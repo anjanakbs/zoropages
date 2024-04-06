@@ -8,6 +8,7 @@ import {
   ForgotPassword,
   OnBoarding,
   Profile,
+  Post,
 } from '../Screens';
 import TabRoutes from './TabRoutes';
 import LoginHomeScreen from '../Screens/LogInHomeScreen/LoginHomeScreen';
@@ -15,6 +16,7 @@ import SearchPeople from '../Screens/SearchFriend/SearchPeople';
 import MaterialTopTab from '../Components/MaterialTopTab';
 import Following from '../Screens/SearchFriend/Following';
 import BottomSheetComp from '../Components/BottomSheetComp';
+import ModalSheet from '../Components/ModalSheet';
 
 export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
@@ -32,6 +34,7 @@ export default function (Stack, isFirstTime) {
         component={InitialAuth}
         options={{headerShown: false, gestureEnabled:true }}
       /> */}
+      
        <Stack.Screen
         name={navigationStrings.LogInHomeScreen}
         component={LoginHomeScreen}
@@ -82,9 +85,14 @@ export default function (Stack, isFirstTime) {
         component={Following}
         options={{headerShown: false}}
       />
+       <Stack.Screen
+        name={navigationStrings.ModalSheet}
+        component={ModalSheet}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
-        name={navigationStrings.BottomSheetComp}
-        component={BottomSheetComp}
+        name={navigationStrings.POST}
+        component={Post}
         options={{headerShown: false}}
       />
     </>

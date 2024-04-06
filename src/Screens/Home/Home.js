@@ -1,4 +1,4 @@
-import {View, Image, ScrollView} from 'react-native';
+import {View, Image, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import imagePath from '../../constants/imagePath';
 import {width} from '../../styles/responsiveSize';
@@ -10,7 +10,7 @@ import VideoComponent from '../../Components/VideoComponent';
 const Home = ({navigation}) => {
   return (
     // <WrapperContainer>
-    <View style={{flex:1,marginTop:20,}}> 
+    <View style={{flex:1,marginTop:25,}}> 
     {/* marginTop:50 */}
       <View style={{padding:10}}>
       <HeaderComp leftIcon={imagePath.backicon} />
@@ -23,15 +23,15 @@ const Home = ({navigation}) => {
           <Image
             source={imagePath.inactive_notification}
             style={{height: 22, width: 22}}
-            tintColor={colors.darkgreen}
+            // tintColor={colors.darkgreen}
           />
-          <View style={{marginLeft: 20}}>
+          <TouchableOpacity style={{marginLeft: 20}} onPress={()=>navigation.navigate('Post')}>
             <Image
               source={imagePath.inactive_message}
-              style={{height: 22, width: 25}}
-              tintColor={colors.darkgreen}
+              style={{height: 23, width: 25}}
+              // tintColor={colors.darkgreen}
             />
-          </View>
+          </TouchableOpacity>
           </View>
         </View>
       </View>

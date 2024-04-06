@@ -19,7 +19,7 @@ import {
   width,
 } from '../styles/responsiveSize';
 import SlidePost from './SlidePost';
-import {useNavigation} from '@react-navigation/native';
+import ModalSheet from '../Components/ModalSheet'
 // import styles from './VideoStyles';
 const HeaderComponent = () => (
   <View>
@@ -158,7 +158,7 @@ const VideoComponent = ({navigation}) => {
   const renderItem = ({item}) => (
     <View style={styles.imagepostview}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection:'row'}}>
           <Image
             source={{uri: item.src}}
             style={{
@@ -168,11 +168,17 @@ const VideoComponent = ({navigation}) => {
               margin: 5,
             }}
           />
+          <View>
           <Text style={styles.author}>{item.author}</Text>
+          <Text style={styles.postdate}>{item.uploadTime}</Text>
+          </View>
         </View>
         <View style={styles.followview}>
-          <Text style={styles.Follow}>{item.Follow}</Text>
-          <Image source={imagePath.menu} style={styles.menuicon} />
+          <Text style={styles.Follow} >{item.Follow}</Text>
+         <TouchableOpacity onPress={()=>alert('ModalSheet')}>
+          <Image source={imagePath.menu} style={styles.menuicon}/>
+         
+       </TouchableOpacity>
         </View>
       </View>
       {item?.type == 1 ? (
@@ -200,17 +206,16 @@ const VideoComponent = ({navigation}) => {
           />
         </TouchableOpacity>
       )}
-      <View style={{marginBottom: 10, padding: 5}}>
+      <View style={{marginBottom: 10, padding: 0}}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row',}}>
             <Image source={imagePath.Like2} style={styles.icon} />
             <Image source={imagePath.comment3} style={styles.icon} />
             <Image
               source={imagePath.share4}
               style={styles.icon}
-              // tintColor={colors.darkgreen}
             />
           </View>
           <Image source={imagePath.Save} style={styles.saveicon} />
@@ -249,7 +254,7 @@ export default VideoComponent;
 const styles = StyleSheet.create({
   video: {
     width: width,
-    height: height / 2 - 50,
+    height: height / 3.5,
     marginTop: 10,
   },
   imagepostview: {
@@ -283,21 +288,29 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(20),
     fontFamily: fontFamily.bold,
     color: colors.darkgreen,
+    paddingLeft:2
   },
   description: {
     fontSize: moderateScale(16),
     fontFamily: fontFamily.regular,
+    paddingLeft:3
   },
   Comment: {
     fontSize: moderateScale(15),
     fontFamily: fontFamily.medium,
     marginTop: 5,
+    paddingLeft:3
+
   },
   author: {
     fontSize: moderateScale(20),
     fontFamily: fontFamily.bold,
     marginTop: 10,
-    paddingLeft: 8,
+    paddingLeft: 5,
+  },
+  postdate:{
+    paddingLeft: 5,
+
   },
   followview: {
     flexDirection: 'row',
@@ -309,31 +322,33 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: textScale(14),
     borderWidth: 1,
-    borderRadius: 10,
-    borderColor: colors.lightgrey,
+    borderRadius:5,
+    borderColor: colors.black,
     height: 30,
     width: 80,
     paddingTop: 5,
     color: colors.black,
-    backgroundColor: colors.lightgrey,
+    // backgroundColor: colors.lightgrey,
   },
   videofollow: {
     flexDirection: 'row',
   },
   icon: {
-    height: 28,
-    width: 28,
-    marginLeft: 10,
+    height: 25,
+    width: 25,
+    // marginLeft: 10,
+    // paddingLeft:10,
+    marginHorizontal:5,
     marginTop: 9,
   },
   menuicon: {
-    height: 18,
+    height: 20,
     width: 20,
     marginTop: 13,
   },
   saveicon: {
-    height: 28,
-    width: 28,
+    height: 25,
+    width: 25,
     // tintColor: colors.darkgreen,
     marginTop: 10,
     marginRight: 10,
