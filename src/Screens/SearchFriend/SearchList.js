@@ -104,7 +104,7 @@ const SearchList = ({navigation}) => {
     <View>
       <FlatList
         ItemSeparatorComponent={props => {
-          console.log('props', props); // here you can access the trailingItem with props.trailingItem
+          console.log('props', props);
           return (
             <View
               style={{

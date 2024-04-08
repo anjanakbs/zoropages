@@ -4,7 +4,7 @@ import {height, moderateScale, width} from '../../styles/responsiveSize';
 import fontFamily from '../../styles/fontFamily';
 import colors from '../../styles/colors';
 
-const SearchList = () => {
+const Message = () => {
   const [images, setImages] = useState([
     {
       src: require('../../assets/images/Marry.png'),
@@ -101,7 +101,7 @@ const SearchList = () => {
   );
 };
 
-export default SearchList;
+export default Message;
 const styles = StyleSheet.create({
   follow: {
     marginLeft: moderateScale(10),

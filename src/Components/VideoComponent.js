@@ -19,8 +19,7 @@ import {
   width,
 } from '../styles/responsiveSize';
 import SlidePost from './SlidePost';
-import ModalSheet from '../Components/ModalSheet'
-// import styles from './VideoStyles';
+import ModalSheet from '../Components/ModalSheet';
 const HeaderComponent = () => (
   <View>
     <Stories horizontal={true} />
@@ -141,11 +140,7 @@ const VideoComponent = ({navigation}) => {
     setIsPlaying(prevIsPlaying => !prevIsPlaying);
   };
   const [visibleVideoId, setVisibleVideoId] = useState(null);
-  // const handleViewableItemsChanged = ({ viewableItems }) => {
-  //   if (viewableItems.length > 0) {
-  //     setFocusedIndex(viewableItems[0].index);
-  //   }
-  // };
+
   const handleViewableItemsChanged = ({viewableItems}) => {
     console.log(viewableItems, 'viewableItemsviewableItems');
     if (viewableItems.length > 1 && viewableItems[1].item.type == 3) {
@@ -158,7 +153,7 @@ const VideoComponent = ({navigation}) => {
   const renderItem = ({item}) => (
     <View style={styles.imagepostview}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View style={{flexDirection:'row'}}>
+        <View style={{flexDirection: 'row'}}>
           <Image
             source={{uri: item.src}}
             style={{
@@ -169,16 +164,15 @@ const VideoComponent = ({navigation}) => {
             }}
           />
           <View>
-          <Text style={styles.author}>{item.author}</Text>
-          <Text style={styles.postdate}>{item.uploadTime}</Text>
+            <Text style={styles.author}>{item.author}</Text>
+            <Text style={styles.postdate}>{item.uploadTime}</Text>
           </View>
         </View>
         <View style={styles.followview}>
-          <Text style={styles.Follow} >{item.Follow}</Text>
-         <TouchableOpacity onPress={()=>alert('ModalSheet')}>
-          <Image source={imagePath.menu} style={styles.menuicon}/>
-         
-       </TouchableOpacity>
+          <Text style={styles.Follow}>{item.Follow}</Text>
+          <TouchableOpacity onPress={() => alert('ModalSheet')}>
+            <Image source={imagePath.menu} style={styles.menuicon} />
+          </TouchableOpacity>
         </View>
       </View>
       {item?.type == 1 ? (
@@ -194,7 +188,9 @@ const VideoComponent = ({navigation}) => {
         <SlidePost imageUrl={item.imageUrl} />
       ) : (
         <TouchableOpacity
-          onPress={() => navigation.navigate('Reels', {videoUrl: item.videoUrl}) }>
+          onPress={() =>
+            navigation.navigate('Reels', {videoUrl: item.videoUrl})
+          }>
           <Video
             source={{uri: item.videoUrl}}
             style={styles.video}
@@ -210,13 +206,10 @@ const VideoComponent = ({navigation}) => {
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={{flexDirection: 'row',}}>
+          <View style={{flexDirection: 'row'}}>
             <Image source={imagePath.Like2} style={styles.icon} />
             <Image source={imagePath.comment3} style={styles.icon} />
-            <Image
-              source={imagePath.share4}
-              style={styles.icon}
-            />
+            <Image source={imagePath.share4} style={styles.icon} />
           </View>
           <Image source={imagePath.Save} style={styles.saveicon} />
         </View>
@@ -229,7 +222,6 @@ const VideoComponent = ({navigation}) => {
     <View
       style={{
         flex: 1,
-        // margin:10
       }}>
       <FlatList
         data={data}
@@ -243,7 +235,6 @@ const VideoComponent = ({navigation}) => {
         }}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        // pagingEnabled
         viewablePercentThreshold={100}
         onViewableItemsChanged={handleViewableItemsChanged}
       />
@@ -288,19 +279,18 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(20),
     fontFamily: fontFamily.bold,
     color: colors.darkgreen,
-    paddingLeft:2
+    paddingLeft: 2,
   },
   description: {
     fontSize: moderateScale(16),
     fontFamily: fontFamily.regular,
-    paddingLeft:3
+    paddingLeft: 3,
   },
   Comment: {
     fontSize: moderateScale(15),
     fontFamily: fontFamily.medium,
     marginTop: 5,
-    paddingLeft:3
-
+    paddingLeft: 3,
   },
   author: {
     fontSize: moderateScale(20),
@@ -308,9 +298,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingLeft: 5,
   },
-  postdate:{
+  postdate: {
     paddingLeft: 5,
-
   },
   followview: {
     flexDirection: 'row',
@@ -322,13 +311,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: textScale(14),
     borderWidth: 1,
-    borderRadius:5,
+    borderRadius: 8,
     borderColor: colors.black,
     height: 30,
-    width: 80,
+    width: 90,
     paddingTop: 5,
     color: colors.black,
-    // backgroundColor: colors.lightgrey,
+    // backgroundColor: colors.darkgreen,
   },
   videofollow: {
     flexDirection: 'row',
@@ -336,9 +325,7 @@ const styles = StyleSheet.create({
   icon: {
     height: 25,
     width: 25,
-    // marginLeft: 10,
-    // paddingLeft:10,
-    marginHorizontal:5,
+    marginHorizontal: 5,
     marginTop: 9,
   },
   menuicon: {
@@ -349,7 +336,6 @@ const styles = StyleSheet.create({
   saveicon: {
     height: 25,
     width: 25,
-    // tintColor: colors.darkgreen,
     marginTop: 10,
     marginRight: 10,
   },

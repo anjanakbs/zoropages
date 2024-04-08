@@ -5,7 +5,6 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import HeaderComp from '../../Components/HeaderComp';
 import imagePath from '../../constants/imagePath';
 import Storycomponent from '../../Components/Storycomponent';
-import SearchList from '../SearchFriend/SearchList';
 import Message from '../Post/Message';
 
 // create a component

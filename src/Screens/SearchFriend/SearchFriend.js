@@ -78,22 +78,21 @@ const Search = ({navigation}) => {
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
-            <Text>{item.text}</Text>
+            <Text style={styles.text}>{item.text}</Text>
             <View style={{ flexDirection: 'row' }}>
-              <Button title="Edit" onPress={() => {
+              <Button title="Add Friend" onPress={() => {
                 const newText = prompt('Edit todo:', item.text);
                 if (newText !== null) {
                   editTodo(item.id, newText);
                 }
               }} />
-              <Button title="Delete" color="red" onPress={() => deleteTodo(item.id)} />
+              <Button title="Remove" color="red" onPress={() => deleteTodo(item.id)} />
             </View>
           </View>
         )}
       />
         </View>
       </View>
-     
     </WrapperContainer>
   );
 };
@@ -131,6 +130,11 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.medium,
     fontSize: textScale(20),
   },
+  text:{
+fontFamily:fontFamily.medium,
+fontSize:textScale(15)
+
+  }
 });
 
 //make this component available to the app

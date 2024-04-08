@@ -62,7 +62,8 @@ play:require('../assets/images/play.png'),
 //**** Post photo, video  */
 posticon:require('../assets/images/Posticon.png'),
 photo:require('../assets/images/photo.png'),
-Dogvideo:require('../assets/images/dogvideo.mp4')
+Dogvideo:require('../assets/images/dogvideo.mp4'),
+smile:require('../assets/images/smile.png')
 };
 
 
