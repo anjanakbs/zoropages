@@ -11,6 +11,7 @@ import colors from '../../styles/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import fontFamily from '../../styles/fontFamily';
 import strings from '../../constants/lang';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const OtpVerification = ({navigation}) => {
   const goToScreen = screen => {
@@ -31,6 +32,7 @@ const OtpVerification = ({navigation}) => {
       <View style={styles.container}>
         <Text style={styles.heading}>Create an account</Text>
       </View>
+      <KeyboardAwareScrollView>
       <View style={styles.inputview}>
         <TextInputWithLabel
           placeholder={strings.USER_NAME}
@@ -53,6 +55,7 @@ const OtpVerification = ({navigation}) => {
           extraStyle={{width: width - 60, alignSelf: 'center'}}
         />
       </View>
+      </KeyboardAwareScrollView>
       <View>
         <ButtonComp
           btnText="SignUp"

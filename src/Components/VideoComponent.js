@@ -207,9 +207,15 @@ const VideoComponent = ({navigation}) => {
         <Text style={styles.description}>{item.description}</Text>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View style={{flexDirection: 'row'}}>
-            <Image source={imagePath.Like2} style={styles.icon} />
+            <TouchableOpacity onPress={()=>alert('like')}>
+            <Image source={imagePath.Like2} style={styles.icon}  />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>alert('comment')}>
             <Image source={imagePath.comment3} style={styles.icon} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>alert('share')}>
             <Image source={imagePath.share4} style={styles.icon} />
+            </TouchableOpacity>
           </View>
           <Image source={imagePath.Save} style={styles.saveicon} />
         </View>
@@ -325,7 +331,7 @@ const styles = StyleSheet.create({
   icon: {
     height: 25,
     width: 25,
-    marginHorizontal: 5,
+    marginHorizontal: 8,
     marginTop: 9,
   },
   menuicon: {

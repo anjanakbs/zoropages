@@ -14,6 +14,8 @@ export default {
 
   /*************** Home Page Icon/images *********/
   Searchicon:require('../assets/images/Searchicon.png'),
+  // search:require('../assets/images/search2.png'),
+  search2:require('../assets/images/search2.png'),
   jack:require('../assets/images/jack.png'),
   Jones:require('../assets/images/Jones.png'),
   Leis:require('../assets/images/Leis.png'),

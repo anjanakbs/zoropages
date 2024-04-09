@@ -9,6 +9,7 @@ import store from './src/redux/store';
 import fontFamily from './src/styles/fontFamily';
 import { moderateScale, textScale } from './src/styles/responsiveSize';
 import { getFirstTime, getUserData } from './src/utils/utils';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const { dispatch } = store;
 const App = () => {
   const init = async () => {
@@ -31,6 +32,7 @@ const App = () => {
     init()
   }, []);
   return (
+    <GestureHandlerRootView>
     <Provider store={store}>
       <SafeAreaProvider>
         <Routes />
@@ -44,6 +46,7 @@ const App = () => {
         />
       </SafeAreaProvider>
     </Provider>
+    </GestureHandlerRootView>
     
   );
 };

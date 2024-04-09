@@ -95,6 +95,11 @@ export default function (Stack, isFirstTime) {
         component={Post}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name={navigationStrings.BottomSheetComp}
+        component={BottomSheetComp}
+        options={{headerShown: false}}
+      />
     </>
   );
 }

@@ -9,11 +9,12 @@ import colors from '../styles/colors';
 const HeaderComp = ({
     onPressLeft,
     leftIcon,
+    containerstyle={}
 }) => {
     const navigation = useNavigation()
     
     return (
-        <View style={styles.container}>
+        <View style={{...styles.containerstyle, ...containerstyle}}>
             {leftIcon&&<TouchableOpacity onPress={!!onPressLeft ?onPressLeft:()=>navigation.goBack()}>
                 <Image style={{ tintColor: colors.black,}} source={imagePath.backicon} />
             </TouchableOpacity>}
@@ -22,7 +23,7 @@ const HeaderComp = ({
 };
 // define your styles
 const styles = StyleSheet.create({
-    container: {
+    containerstyle: {
         height: moderateScaleVertical(42),
         flexDirection: 'row',
         alignItems: 'center',
