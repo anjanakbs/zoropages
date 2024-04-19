@@ -12,7 +12,6 @@ const HeaderComp = ({
     containerstyle={}
 }) => {
     const navigation = useNavigation()
-    
     return (
         <View style={{...styles.containerstyle, ...containerstyle}}>
             {leftIcon&&<TouchableOpacity onPress={!!onPressLeft ?onPressLeft:()=>navigation.goBack()}>

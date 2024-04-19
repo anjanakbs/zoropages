@@ -17,6 +17,7 @@ export default {
   repost3:require('../assets/images/repost3.png'),
   viewicon:require('../assets/images/viewicon.png'),
   add:require('../assets/images/add.png'),
+  addicon2:require('../assets/images/addicon2.png'),
   /*************** Home Page Icon/images *********/
   Searchicon: require('../assets/images/Searchicon.png'),
   // search:require('../assets/images/search2.png'),
@@ -42,6 +43,8 @@ export default {
   hidepost: require('../assets/images/hidepost.png'),
   copylink: require('../assets/images/copylink.png'),
   whatsapp: require('../assets/images/whatsapp.mp4'),
+  profileiamge:require('../assets/images/profileimage.jpg'),
+  profileplusicon:require('../assets/images/profileplusicon.png'),
 
 
 

@@ -10,7 +10,7 @@ import colors from '../styles/colors';
 
 const styles = StyleSheet.create({
   video: {
-    height: height / 2,
+    height: height / 1.5,
     width:width,
     // margin: 10,
     // borderRadius: 10,
@@ -48,13 +48,15 @@ const styles = StyleSheet.create({
     fontSize: textScale(17),
     fontFamily: fontFamily.bold,
     color: colors.darkgreen,
-    paddingTop:5,
+    // paddingTop:5,
+    paddingLeft:7
   },
   description: {
     fontSize: textScale(15),
     fontFamily: fontFamily.regular,
     textAlign: 'left',
-    paddingBottom:5,
+    paddingLeft:7
+
   },
   Comment: {
     fontSize: moderateScale(15),
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     width: 90,
     paddingTop: 5,
     color: colors.black,
+    marginLeft:10
     // backgroundColor: colors.darkgreen,
   },
   videofollow: {
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
   icon: {
     height: 25,
     width: 25,
-    marginHorizontal: 8,
+    marginHorizontal:8,
     marginTop: 9,
   },
   menuicon: {
@@ -107,8 +110,8 @@ const styles = StyleSheet.create({
     marginTop: 13,
   },
   saveicon: {
-    height: 21,
-    width: 20,
+    height: 25,
+    width: 25,
     marginTop:12,
     // margin:9
     // marginRight: 10,
@@ -124,5 +127,9 @@ const styles = StyleSheet.create({
     marginRight: 15,
     flexDirection: 'row',
   },
+  likecount:{
+    fontFamily:fontFamily.bold,
+    fontSize:textScale(15)
+  }
 });
 export default styles;

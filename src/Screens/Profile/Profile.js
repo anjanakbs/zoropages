@@ -19,6 +19,7 @@ import Reels from '../Reels/Reels';
 import MyPost from './MyPost';
 import MyReels from './MyReels';
 import TagPost from './TagPost';
+import HeaderComp from '../../Components/HeaderComp';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -27,12 +28,15 @@ const Profile = ({ navigation }) => {
     // <WrapperContainer>
     <View style={{flex:1}}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+        <HeaderComp leftIcon={imagePath.backicon}containerstyle={{marginLeft:5     }}/>
+        <View style={{flexDirection:'row',marginTop:10}}>
+          <Image source={imagePath.search2}style={{height:20,width:20,}}/>    
+          <Image source={imagePath.menu}style={{height:20,width:20,marginRight:10,marginLeft:10}}/>
+        </View>
       </View>
       <View style={{  alignSelf: 'center', marginTop: 10 }}>
         <Image source={imagePath.modal} style={styles.Profile} />
         <Text style={styles.Profilename}>Marry Leis</Text>
-        {/* <View style={{ alignSelf: 'center', paddingLeft: 5 }}>
-        </View> */}
       </View>
       <View style={styles.followlist}>
         <Text style={styles.text}>128 Posts</Text>

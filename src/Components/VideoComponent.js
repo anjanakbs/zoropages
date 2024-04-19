@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   FlatList,
   Image,
+  SafeAreaView,
   Text,
   TouchableOpacity,
   View,
@@ -19,14 +20,18 @@ import HeaderComp from './HeaderComp';
 import styles from './VideoStyles';
 import WrapperContainer from './WrapperContainer';
 import fontFamily from '../styles/fontFamily';
+import BottomSheetComp from './BottomSheetComp';
+import CommentbottomsheetComp from './CommentbottomsheetComp';
+
 const HeaderComponent = ({ navigation }) => (
   <View>
-    <View style={{}}>
-      <View style={styles.mainView}>
+    <View style={{marginBottom:8}}>
+      {/* <View style={styles.mainView}> */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Image
             source={imagePath.logo}
-            style={{ height: 45, width: 30, paddingLeft: width / 2.5, marginLeft: 10 }}
+            resizeMode='contain'
+            style={{ height: 39, width: 28, paddingLeft: width / 2.5, marginLeft: 10 }}
           />
           <View style={styles.image}>
             <Image
@@ -42,28 +47,34 @@ const HeaderComponent = ({ navigation }) => (
           </View>
         </View>
       </View>
-    </View>
+    {/* </View> */}
     <Stories horizontal={true} />
   </View>
 );
 
-
 const VideoComponent = ({ navigation }) => {
+  const[show, setShow]=useState(true)
+ const toggleShow=()=>{
+  setShow(!show)
+ }
   console.log(navigation, 'navigation on video');
   const [isBottomSheetVisible, setIsBottomSheetVisible] = useState(false);
+  const [isCommentVisible, setisCommentVisible] = useState(false)
+
   const data = [
     {
       id: 0,
-      title: '# travel, #relax',
+      title: 'travel, #relax',
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
       duration: '8:18',
       uploadTime: '3 days ago',
       views: '24,969,123',
       author: 'Marry',
       imageUrl:
-        'https://farm9.staticflickr.com/8295/8007075227_dc958c1fe6_z_d.jpg',
+        // 'https://farm9.staticflickr.com/8295/8007075227_dc958c1fe6_z_d.jpg',
+        require('../assets/images/postimage.jpg'),
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'Has plenty to offer the visiting tourist',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -73,7 +84,7 @@ const VideoComponent = ({ navigation }) => {
     },
     {
       id: 1,
-      title: '#Big Buck Bunny#',
+      title: 'Big Buck Bunny#',
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
       duration: '8:18',
       uploadTime: '5 hours ago',
@@ -82,7 +93,7 @@ const VideoComponent = ({ navigation }) => {
       videoUrl:
         'https://videos.pexels.com/video-files/4434150/4434150-sd_540_960_30fps.mp4',
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'Has plenty to offer the visiting tourist, located in the Coventry ',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -92,7 +103,7 @@ const VideoComponent = ({ navigation }) => {
     },
     {
       id: 2,
-      title: '#The first Blender Open Movie #',
+      title: 'The first Blender Open Movie #',
       src: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
       duration: '12:18',
       uploadTime: '1 month ago ',
@@ -101,7 +112,7 @@ const VideoComponent = ({ navigation }) => {
       videoUrl:
         'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'located in the Coventry is a city with a thousands ',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -111,7 +122,7 @@ const VideoComponent = ({ navigation }) => {
     },
     {
       id: 4,
-      title: '#For Bigger Blazes#',
+      title: 'For Bigger Blazes#',
       src: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
       duration: '8:18',
       uploadTime: '2 days ago',
@@ -120,7 +131,7 @@ const VideoComponent = ({ navigation }) => {
       videoUrl:
       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',              
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -130,7 +141,7 @@ const VideoComponent = ({ navigation }) => {
     },
     {
       id: 5,
-      title: '#For Bigger Blazes#',
+      title: 'For Bigger Blazes#',
       src: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
       duration: '8:18',
       uploadTime: '1 hour ago',
@@ -148,7 +159,7 @@ const VideoComponent = ({ navigation }) => {
         },
       ],
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'Has plenty to offer the visiting  thousands year of history that',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -158,19 +169,20 @@ const VideoComponent = ({ navigation }) => {
     },
     {
       id: 6,
-      title: '#For Bigger Blazes#',
+      title: 'For Bigger Blazes#',
       src: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
       duration: '8:18',
       uploadTime: '4 days ago',
       views: '24,969,123',
       author: 'Jack Denil',
-      videoUrl: [
-       'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' ,
-       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-      ],
+      videoUrl:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      // videoUrl: [
+      //  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' ,
+      //  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+      //  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+      // ],
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry is a city with a thousands year of history that',
+        'Has plenty to offer the visiting tourist,year of history that',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -204,11 +216,13 @@ const VideoComponent = ({ navigation }) => {
                 height: 50,
                 width: 50,
                 borderRadius: 25,
+                margin:5
               }}
             />
             <View style={{ flexDirection: 'row' }}>
               <Text style={styles.author}>{item.author}</Text>
-              <Text style={styles.postdate}>{item.uploadTime}</Text>
+            {/* <Text style={styles.Follow}>{item.Follow}</Text> */}
+              {/* <Text style={styles.postdate}>{item.uploadTime}</Text> */}
             </View>
           </View>
           <View style={styles.followview}>
@@ -220,21 +234,28 @@ const VideoComponent = ({ navigation }) => {
         </View>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
-
+       {/* {!show &&} */}
+        <TouchableOpacity onPress={toggleShow}>
+        <Text style={{marginLeft:7}}>See more</Text>
+        </TouchableOpacity>
+        {show &&
+        <View>
+          <Text style={{marginLeft:7}}>Has plenty to offer the visiting located in the Coventry tourist,year of history that</Text>
+        </View>}
       </View>
       {item?.type == 1 ? (
         <Image
-          source={{ uri: item.imageUrl }}
+          source={ item.imageUrl }
           style={{
-            height: height / 2,
+            height: height / 1.5,
             width: width,
-            resizeMode: 'cover',
+            resizeMode:'cover',
           }}
         />) : item?.type == 2 ? (
           <SlidePost imageUrl={item.imageUrl} />
         ) : item?.type == 4 ?
         <Video
-          source={{ uri: item.src }}
+          source={{ uri: item.videoUrl}}
           style={styles.video}
           resizeMode="cover"
           repeat={true}
@@ -261,27 +282,29 @@ const VideoComponent = ({ navigation }) => {
           <View style={{ flexDirection: 'row' }}>
             <TouchableOpacity onPress={() => alert('like')} style={{flexDirection:'row'}}>
               <Image source={imagePath.Like2} style={styles.icon} />
-              <Text style={{alignSelf:'center'}}>100k</Text>
+              {/* <Text style={{alignSelf:'center'}}>100k</Text> */}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => alert('comment')}style={{flexDirection:'row'}}>
+            <TouchableOpacity  onPress={() => setisCommentVisible(!isCommentVisible)}style={{flexDirection:'row'}}>
               <Image source={imagePath.comment3} style={styles.icon} />
-              <Text style={{alignSelf:'center'}}>100k</Text>
+              {/* <Text style={{alignSelf:'center'}}>100k</Text> */}
             </TouchableOpacity>
-           
+            <TouchableOpacity onPress={() => alert('share')}style={{flexDirection:'row'}}>
+              <Image source={imagePath.share4} style={styles.icon} />
+              {/* <Text style={{alignSelf:'center',marginTop:4}}>200</Text> */}
+            </TouchableOpacity>
           </View>
-          <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
-          <TouchableOpacity onPress={() => alert('share')}style={{flexDirection:'row'}}>
-              <Image source={imagePath.share4} style={{height:25,width:25,marginTop:7}} />
-              <Text style={{alignSelf:'center',marginTop:4}}>200</Text>
-            </TouchableOpacity>
           <Image source={imagePath.Save} style={styles.saveicon}/>
-          {/* <Text>90</Text> */}
-          </View>
         </View>
+        <View style={{marginLeft:7,marginTop:5}}>
+          <Text style={styles.likecount}>1000 Likes</Text>
+          <Text onPress={() => setisCommentVisible(!isCommentVisible)}>View all 10 comments</Text>
+        </View>
+        
       </View>
     </View>
   );
   return (
+    <SafeAreaView style={{flex:1}}>
     <FlatList
       data={data}
       ListHeaderComponent={renderHeader}
@@ -297,6 +320,13 @@ const VideoComponent = ({ navigation }) => {
       viewablePercentThreshold={100}
       onViewableItemsChanged={handleViewableItemsChanged}
     />
+    {
+      isBottomSheetVisible && <BottomSheetComp snapPoints={['25%', '50%', '100%', '150%']} />
+    }
+     {
+        isCommentVisible && <CommentbottomsheetComp commentsnapPoints={['25%', '50%', '100%', '150%']} />
+      }
+    </SafeAreaView>
   );
 };
 export default VideoComponent;
