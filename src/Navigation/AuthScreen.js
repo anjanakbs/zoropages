@@ -13,10 +13,11 @@ import {
 import TabRoutes from './TabRoutes';
 import LoginHomeScreen from '../Screens/LogInHomeScreen/LoginHomeScreen';
 import SearchPeople from '../Screens/SearchFriend/SearchPeople';
-import MaterialTopTab from '../Components/MaterialTopTab';
+import MaterialTopTab from './MaterialTopTab';
 import Following from '../Screens/SearchFriend/Following';
 import BottomSheetComp from '../Components/BottomSheetComp';
 import ModalSheet from '../Components/ModalSheet';
+import SearchFriend from '../Screens/SearchFriend/SearchFriend';
 
 export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
@@ -78,6 +79,11 @@ export default function (Stack, isFirstTime) {
        <Stack.Screen
         name={navigationStrings.SearchPeople}
         component={SearchPeople}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.SearchFriend}
+        component={SearchFriend}
         options={{headerShown: false}}
       />
        <Stack.Screen

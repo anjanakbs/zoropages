@@ -1,7 +1,7 @@
 import React from 'react';
 import navigationStrings from '../constants/navigationStrings';
 import TabRoutes from './TabRoutes';
-import MaterialTopTab from '../Components/MaterialTopTab';
+import MaterialTopTab from './MaterialTopTab';
 
 export default function (Stack) {
   return (

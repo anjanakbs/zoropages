@@ -10,7 +10,7 @@ import imagePath from '../../constants/imagePath';
 const Notification = () => {
   return (
     <WrapperContainer>
-      <HeaderComp leftIcon={imagePath.backicon} />
+      <HeaderComp leftIcon={imagePath.backicon} containerstyle={{}} />
       <View style={styles.container}>
         <Text>Notification</Text>
       </View>

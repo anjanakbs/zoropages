@@ -18,15 +18,16 @@ import WrapperContainer from '../../Components/WrapperContainer';
 import HeaderComp from '../../Components/HeaderComp';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import BottomSheetComp from '../../Components/BottomSheetComp';
+import styles from './ReelsStyle';
+import CommentbottomsheetComp from '../../Components/CommentbottomsheetComp';
 
 const Reels = ({ navigation, route }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [isBottomSheetVisible, setIsBottomSheetVisible] = useState(false);
+  const [isCommentVisible, setisCommentVisible] = useState(false)
+  
 
-  // const BottomSheetComp = () => {
-  //   setIsBottomSheetVisible(true);
-  // };
   const togglePlayback = () => {
     setIsPlaying(prevIsPlaying => !prevIsPlaying);
   };
@@ -35,7 +36,7 @@ const Reels = ({ navigation, route }) => {
   const handleViewableItemsChanged = ({ viewableItems }) => {
     console.log(viewableItems, 'viewableItemsviewableItems');
     if (viewableItems.length > 1 && viewableItems[1].item.type == 3) {
-      setVisibleVideoId(viewableItems[1].item.id);
+      setVisibleVideoId(viewableItems[0].item.id);
     } else {
       setVisibleVideoId(null);
     }
@@ -44,104 +45,89 @@ const Reels = ({ navigation, route }) => {
     {
       id: 1,
       videoUrl:
-        'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        'https://videos.pexels.com/video-files/4434150/4434150-sd_540_960_30fps.mp4',
+        Follow: 'Follow',
       type: 3
     },
     {
       id: 2,
       videoUrl:
-        'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        Follow: 'Follow',
       type: 3
     },
     {
       id: 3,
       videoUrl:
         'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        Follow: 'Follow',
       type: 3
     },
     {
       id: 4,
       videoUrl:
         'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        Follow: 'Follow',
       type: 3
     },
   ];
-  const bottomSheetRef = useRef < BottomSheet > (null);
-  const handleSheetChanges = useCallback((index) => {
-    console.log('handleSheetChanges', index);
-  }, []);
-  const snapPoints = useMemo(() => ['25%', '50%', '70%'], []);
-  const renderItem = ({ item }) => (
-    <View style={{ marginTop: 10 }}>
+  const snapPoints = useMemo(() => ['25%', '50%',], []);
 
+
+  const renderItem = ({ item }) => (
+    <View style={styles.overallview}>
       <View style={styles.mainView}>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row', margin: 5,}}>
           <Image source={imagePath.Marry} />
-          <View style={{ marginTop: 10, paddingLeft: 12 }}>
-            <Text style={styles.textstyle}>Entertainment Hub</Text>
-            <Text style={styles.textstyle}>Nov18,2023</Text>
+          <View style={{ marginTop: 10, paddingLeft: 12,}}>
+            <Text style={styles.textstyle}>Entertainment Hub  </Text>
+            <Text style={styles.textstyle}>1 hours</Text>
           </View>
         </View>
+        <Text style={styles.Follow}>{item.Follow}</Text>
         <TouchableOpacity onPress={() => setIsBottomSheetVisible(!isBottomSheetVisible)}>
-        <Image
-          source={imagePath.menu}
-          style={{ height: 20, width: 20, marginTop: 20 }}
-        />
+          <Image
+            source={imagePath.menu}
+            style={{ height: 20, width: 20, marginTop: 20 }}
+          />
         </TouchableOpacity>
       </View>
       <Video
         source={{ uri: route.params.videoUrl }}
+      //  source={{ uri: item.videoUrl }}
         style={styles.video}
         paused={visibleVideoId !== item.id}
         muted={visibleVideoId != item.id}
         volume={isPlaying ? 1.0 : 0.4}
         resizeMode="cover"
-        repeat={true} 
+        repeat={true}
       />
-      <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 5 }}>
-
-
-        <Image
-          source={imagePath.Like}
-          style={{ height: 20, width: 20, marginLeft: 10, marginTop: 5 }}
-          tintColor={colors.theme}
-        />
-
-        <Image
-          source={imagePath.smile}
-          style={{ height: 20, width: 20, marginTop: 5 }}
-        />
-        <Text
-          style={{
-            marginTop: 5,
-            marginLeft: 15,
-          }}>{`${'246k'}    ${'321 Comments'}    ${'Shares 6M views'}`}</Text>
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-          <Image source={imagePath.Like2} style={styles.iconstyle} />
-        <Text style={styles.icontext}>Like</Text>
+      <View style={{ flexDirection: 'row',marginBottom:10,justifyContent:'space-between'}}>
+        <View style={{flexDirection:'row'}}>
+        <Image source={imagePath.Like2} style={styles.iconstyle} />
+        <Text style={styles.icontext}>100k</Text>
+        <TouchableOpacity onPress={() => setisCommentVisible(!isCommentVisible)}>
         <Image source={imagePath.comment3} style={styles.iconstyle} />
-        <Text style={styles.icontext}>Comment</Text>
-        <Image source={imagePath.share5} style={styles.iconstyle} />
-        <Text style={styles.icontext}>Share</Text>
-        <Image source={imagePath.Save} style={styles.iconstyle} />
-        <Text style={styles.icontext}>Save</Text>
+        </TouchableOpacity>
+        <Text style={styles.icontext}>200</Text>
+        </View>
+        <View style={{flexDirection:'row',}}>
+      <Image source={imagePath.share5} style={styles.iconstyle} />
+        <Text style={styles.icontext}>100</Text>
+        <Image source={imagePath.repost3} style={styles.saveicon}/>
+        <Text style={styles.icontext}>2</Text>
+        </View>
       </View>
-    </View>
+      </View>
   );
   return (
+    // <WrapperContainer>
     <SafeAreaView
       style={{
         flex: 1,
+        // backgroundColor:'white'
       }}>
-      <View style={styles.headerstyle}>
-        <HeaderComp leftIcon={imagePath.backicon} containerstyle={{ marginLeft: 10, tintColor: colors.white }} tintColor={colors.white} />
-        <Text style={styles.heading}>Video</Text>
-        <View style={{ flexDirection: 'row', marginRight: 15 }}>
-          <Image source={imagePath.inactive_profile} style={{ marginTop: 10, }} tintColor={colors.white} />
-          <Image source={imagePath.search2} style={{ marginTop: 10, marginLeft: 10, height: 21, width: 21 }} tintColor={colors.white} />
-        </View>
-      </View>
+      <HeaderComp leftIcon={imagePath.backicon} containerstyle={{ marginLeft: 5,backgroundColor:'white'}} />
       <FlatList
         data={data}
         style={{ flex: 1 }}
@@ -151,66 +137,20 @@ const Reels = ({ navigation, route }) => {
         viewablePercentThreshold={100}
         onViewableItemsChanged={handleViewableItemsChanged}
       />
-
       {
-        isBottomSheetVisible && <BottomSheetComp />
+        isBottomSheetVisible && <BottomSheetComp snapPoints={['25%', '50%', '100%', '150%']} />
+      }
+      {
+        isCommentVisible && <CommentbottomsheetComp commentsnapPoints={['25%', '50%', '100%', '150%']} />
       }
     </SafeAreaView >
+    // </WrapperContainer>
   );
 };
 export default Reels;
-const styles = StyleSheet.create({
-  video: {
-    width: width,
-    height: height / 1.3,
-  },
-  mainView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  textstyle: {
-    fontFamily: fontFamily.medium,
-    fontSize: textScale(14),
-  },
-  iconstyle: {
-    height: 25,
-    width: 25,
-    marginTop: 5,
-    marginHorizontal: 10
-  },
-  icontext: {
-    marginTop: 7,
-    paddingLeft: 5,
-    fontFamily: fontFamily.medium,
-  },
-  heading: {
-    fontFamily: fontFamily.bold,
-    fontSize: textScale(15),
-    marginTop: 10,
-    color: colors.white
-  },
-  headerstyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    backgroundColor: colors.black
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  containerHeadline: {
-    fontSize: 24,
-    fontWeight: '600',
-    padding: 20
-  }
 
-});
+
+
 // import {
 //   View,
 //   Text,

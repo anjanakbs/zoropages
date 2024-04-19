@@ -7,7 +7,6 @@ import imagePath from '../../constants/imagePath';
 import Storycomponent from '../../Components/Storycomponent';
 import Message from '../Post/Message';
 
-// create a component
 const Post = ({navigation}) => {
   return (
     <WrapperContainer>
@@ -19,16 +18,14 @@ const Post = ({navigation}) => {
         <Storycomponent />
       </View>
       <View>
-        <Message />
+        <Message navigation={navigation}/>
       </View>
     </WrapperContainer>
   );
 };
 
-// define your styles
 const styles = StyleSheet.create({
   container: {},
 });
 
-//make this component available to the app
 export default Post;

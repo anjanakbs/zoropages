@@ -7,7 +7,6 @@ import imagePath from '../../constants/imagePath';
 const Following = ({navigation}) => {
   return (
     <WrapperContainer>
-      <HeaderComp leftIcon={imagePath.backicon} />
       <View>
         <Text>Following</Text>
       </View>

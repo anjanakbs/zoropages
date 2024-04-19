@@ -25,10 +25,10 @@ const ForYou = () => {
   );
   return (
     <WrapperContainer>
-      <HeaderComp leftIcon={imagePath.backicon} />
       <View>
         <View>
-          <FlatList data={forYou} renderItem={renderItem} horizontal={true} />
+          {/* <FlatList data={forYou} renderItem={renderItem} horizontal={true} /> */}
+          <Text>hlo</Text>
         </View>
       </View>
     </WrapperContainer>

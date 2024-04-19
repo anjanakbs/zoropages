@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import fontFamily from '../styles/fontFamily';
 import { textScale } from '../styles/responsiveSize';
 
-const Storycomponent = () => {
+const Storycomponent = ({navigation}) => {
     const [images, setImages] = useState([
       {src:require('../assets/images/Stream.png'), text:'Merry'},
         {src:require('../assets/images/Marry.png'),text:'Loy'},

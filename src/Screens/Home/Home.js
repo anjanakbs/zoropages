@@ -9,35 +9,9 @@ import VideoComponent from '../../Components/VideoComponent';
 
 const Home = ({navigation}) => {
   return (
-    // <WrapperContainer>
-    <View style={{flex:1,marginTop:25,}}> 
-    {/* marginTop:50 */}
-      <View style={{padding:10}}>
-      <HeaderComp leftIcon={imagePath.backicon} />
-      <View style={styles.mainView}>
-        <Image
-          source={imagePath.logo}
-          style={{height: 35, width: 30, paddingLeft: width / 2.5}}
-        />
-        <View style={styles.image}>
-          <Image
-            source={imagePath.inactive_notification}
-            style={{height: 22, width: 22}}
-            // tintColor={colors.darkgreen}
-          />
-          <TouchableOpacity style={{marginLeft: 20}} onPress={()=>navigation.navigate('Post')}>
-            <Image
-              source={imagePath.inactive_message}
-              style={{height: 23, width: 25}}
-              // tintColor={colors.darkgreen}
-            />
-          </TouchableOpacity>
-          </View>
-        </View>
+    <View style={{flex:1,}}> 
+        <VideoComponent navigation={navigation}/>
       </View>
-      <VideoComponent navigation={navigation}/>
-      </View>
-    // </WrapperContainer>
   );
 };
 export default Home;

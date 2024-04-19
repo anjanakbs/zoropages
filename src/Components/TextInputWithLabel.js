@@ -18,6 +18,7 @@ const TextInputWithLabel
          righticon,
          width,
          height,
+         onFocus,
         ...props
     }) => {
         return (
@@ -30,6 +31,7 @@ const TextInputWithLabel
                     onChangeText={onChangeText}
                     placeholder={placeholder}
                     placeholderTextColor={placeholderTextColor}
+                    onFocus={onFocus}
                     {...props}
                 />
                  {righticon && <Image source={righticon} />}

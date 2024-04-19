@@ -4,7 +4,7 @@ import {height, moderateScale, width} from '../../styles/responsiveSize';
 import fontFamily from '../../styles/fontFamily';
 import colors from '../../styles/colors';
 
-const Message = () => {
+const Message = ({navigation}) => {
   const [images, setImages] = useState([
     {
       src: require('../../assets/images/Marry.png'),

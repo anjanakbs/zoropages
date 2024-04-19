@@ -1,4 +1,4 @@
-import {View, Text, FlatList, Image, StyleSheet} from 'react-native';
+import {View, Text, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {width} from '../../styles/responsiveSize';
 import fontFamily from '../../styles/fontFamily';
@@ -92,11 +92,11 @@ const SearchList = ({navigation}) => {
         <Text style={{color: 'black'}}>{item.text2}</Text>
       </View>
       <View style={styles.followView}>
-        <Text
-          style={styles.follow}
-          onPress={() => navigation.navigate('MaterialTopTab')}>
+        <TouchableOpacity onPress={()=>navigation.navigate('MaterialTopTab')}>
+        <Text style={styles.follow}>
           {item.text3}
         </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

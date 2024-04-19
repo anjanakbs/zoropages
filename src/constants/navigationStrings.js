@@ -12,6 +12,7 @@ export default {
     Following:'Following',
     SEARCH:"Search",
     SearchPeople:'SearchPeople',
+    SearchFriend:'SearchFriend',
     POST:'Post',
     NOTIFICATION:"Notification",
     PROFILE:"Profile",

@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   height,
   moderateScale,
@@ -10,60 +10,69 @@ import colors from '../styles/colors';
 
 const styles = StyleSheet.create({
   video: {
-    width: width,
-    height: height / 1.3,
-    marginTop: 10,
+    height: height / 2,
+    width:width,
+    // margin: 10,
+    // borderRadius: 10,
+    // borderWidth: 1,
+    // borderColor: 'black'
   },
   imagepostview: {
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 1},
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 2,
     backgroundColor: colors.white,
-    height: height / 1.2,
-    width: width,
-    marginTop: 10,
-    marginBottom: 10,
+    // marginTop: 10,
+    // marginBottom: 5,
   },
   videopostview: {
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 1},
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 2,
     backgroundColor: colors.white,
-    height: height / 1+90,
+    height: height / 1 + 90,
     width: width,
     marginBottom: 10,
     marginBottom: 10,
   },
   imageview: {
-    // flex:1,
     flexDirection: 'row',
     marginBottom: moderateScale(5),
-    justifyContent:'space-between',
-   
+    justifyContent: 'space-between',
   },
   title: {
-    fontSize: moderateScale(20),
+    fontSize: textScale(17),
     fontFamily: fontFamily.bold,
     color: colors.darkgreen,
+    paddingTop:5,
   },
   description: {
-    fontSize: moderateScale(16),
+    fontSize: textScale(15),
     fontFamily: fontFamily.regular,
+    textAlign: 'left',
+    paddingBottom:5,
   },
   Comment: {
     fontSize: moderateScale(15),
     fontFamily: fontFamily.medium,
     marginTop: 5,
+    marginHorizontal: 8,
+    textAlign: 'left'
   },
   author: {
     fontSize: moderateScale(20),
     fontFamily: fontFamily.bold,
-    marginTop: 10,
-    paddingLeft: 8,
+    marginTop: 8,
+    paddingLeft: 5,
+  },
+  postdate: {
+    paddingLeft: 5,
+    marginTop: 17,
+
   },
   followview: {
     flexDirection: 'row',
@@ -75,33 +84,45 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: textScale(14),
     borderWidth: 1,
-    borderRadius: 10,
-    borderColor: colors.lightgrey,
+    borderRadius: 8,
+    borderColor: colors.black,
     height: 30,
-    width: 80,
+    width: 90,
     paddingTop: 5,
     color: colors.black,
-    backgroundColor: colors.lightgrey,
+    // backgroundColor: colors.darkgreen,
   },
   videofollow: {
     flexDirection: 'row',
   },
   icon: {
-    height: 30,
-    width: 30,
-    marginLeft: 10,
-    tintColor: colors.darkgreen,
+    height: 25,
+    width: 25,
+    marginHorizontal: 8,
+    marginTop: 9,
   },
   menuicon: {
-    height: 18,
-     width: 20, 
-     marginTop: 13
-    },
+    height: 20,
+    width: 20,
+    marginTop: 13,
+  },
   saveicon: {
-    height: 28,
-    width: 28,
-    tintColor: colors.darkgreen,
-    marginLeft: width / 1.7,
+    height: 21,
+    width: 20,
+    marginTop:12,
+    // margin:9
+    // marginRight: 10,
+    // marginLeft:5
+    marginHorizontal:10
+  },
+  mainView: {
+    // flexDirection: 'row',
+    // justifyContent: 'space-between',
+    // margin: 5
+  },
+  image: {
+    marginRight: 15,
+    flexDirection: 'row',
   },
 });
 export default styles;

@@ -8,12 +8,16 @@ import {Image, StyleSheet} from 'react-native';
 import {Home, Search, Post, Notification, Profile} from '../Screens';
 import imagePath from '../constants/imagePath';
 import navigationStrings from '../constants/navigationStrings';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
+
 
 import Reels from '../Screens/Reels/Reels';
 
 const BottomTab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
+
+const Stack = createStackNavigator();
 
 function HomeStack() {
   <Stack.Navigator 
