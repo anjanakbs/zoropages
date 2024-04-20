@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Dimensions, FlatList, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { height, width } from '../styles/responsiveSize';
 import CarouselSlider, { Pagination } from 'react-native-snap-carousel';
 const sliderWidth = Dimensions.get('screen').width;
@@ -7,6 +7,8 @@ const sliderWidth = Dimensions.get('screen').width;
 // import CarouselSlider from 'react-native-snap-carousel';
 
 const SlidePost = (props) => {
+  console.log('slide',props);
+
   const carouselRef = useRef();
 const [activeSlide, setActiveSlide] = useState(0)
   const [slideimage, setSlideImage] = useState(props?.imageUrl);
@@ -40,20 +42,23 @@ const [activeSlide, setActiveSlide] = useState(0)
           data={slideimage}
           renderItem={renderItem}
           sliderWidth={sliderWidth}
-          itemWidth={500}
+          itemWidth={415}
           onSnapToItem={index => setActiveSlide(index)}
         />
         <Pagination
           dotsLength={slideimage.length}
           activeDotIndex={activeSlide}
           containerStyle={{
-            // position: 'absolute',
-            // bottom:0,
-            // left: '35%',
+            position: 'absolute',
+            left: '35%',
+            bottom:0
+            
           }}
           dotStyle={{
-            width: 10,
-            height: 10, borderRadius: 10,
+            width: 15,
+            height: 15,
+             borderRadius: 10,
+            // marginTop:0
           }}
           inactiveDotStyle={{
             width: 10,
@@ -72,7 +77,9 @@ const [activeSlide, setActiveSlide] = useState(0)
 
 export default SlidePost;
 const styles = StyleSheet.create({
-
+  carouselContainer:{
+    position:'relative'
+       },
 })
 
 // import React,{useRef,useState} from 'react';

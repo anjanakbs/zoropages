@@ -1,10 +1,28 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image, FlatList } from 'react-native'
 import React from 'react'
 
 const TagPost = () => {
+  const data=[
+    {src:require('../../assets/images/Dog.png'),text:'hlo'},
+    {src:require('../../assets/images/Dog.png'),text:'hlo'},
+    {src:require('../../assets/images/Dog.png'),text:'hlo'},
+    {src:require('../../assets/images/Dog.png'),text:'hlo'},
+
+  ]
+  const renderItem=(item, index) =>{
+    <View>
+      <Image source={item.src}style={{height:100,width:100}}/>
+      <Text>{item.text}</Text>
+    </View>
+  }
   return (
     <View>
       <Text>TagPost</Text>
+      <FlatList 
+      horizontal={false}
+      data={data}
+      renderItem={renderItem}
+      showsHorizontalScrollIndicator={false}/>
     </View>
   )
 }

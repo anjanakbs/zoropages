@@ -4,6 +4,7 @@ import SearchPeople from './SearchPeople';
 import WrapperContainer from '../../Components/WrapperContainer';
 import HeaderComp from '../../Components/HeaderComp';
 import imagePath from '../../constants/imagePath';
+import SearchList from './SearchList';
 
 const ForYou = () => {
   const [forYou, setForYou] = useState([
@@ -29,6 +30,7 @@ const ForYou = () => {
         <View>
           {/* <FlatList data={forYou} renderItem={renderItem} horizontal={true} /> */}
           <Text>hlo</Text>
+          <SearchList/>
         </View>
       </View>
     </WrapperContainer>

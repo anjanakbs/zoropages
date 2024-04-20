@@ -1,11 +1,12 @@
 import BottomSheet from '@gorhom/bottom-sheet';
 import { useMemo, useState } from 'react';
-import { StyleSheet, View, Text, Button, Image, SafeAreaView, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, View, Text, Button, Image, SafeAreaView, TouchableOpacity, Alert, TextInput } from 'react-native';
 import { textScale, width } from '../styles/responsiveSize';
 import fontFamily from '../styles/fontFamily';
 import colors from '../styles/colors';
 import imagePath from '../constants/imagePath';
 import WrapperContainer from './WrapperContainer';
+import TextInputWithLabel from './TextInputWithLabel';
 
 const CommentbottomsheetComp = ({
   navigation,
@@ -79,6 +80,19 @@ Alert.alert('cut')
           <Text>Copy</Text>
           <Text>See translation</Text>
         </View>
+          <View style={{flexDirection:'row',marginTop:10
+        }}>
+          <Image source={imagePath.cartoon}
+              style={{
+                height: 50,
+                width: 50,
+                borderRadius: 25,
+                margin:5}}/>
+                <TextInput placeholder='Add comment' style={styles.textinputstyle}/>
+                 {/* <TextInputWithLabel placeholder='Add Comment'
+                lefticon={imagePath.Marry}
+                 extraStyle={{width:width/1.2,borderRadius:20}} />  */}
+         </View> 
       </View>
     </BottomSheet>
 
@@ -117,6 +131,15 @@ const styles = StyleSheet.create({
     width: 20,
     marginRight: 10,
     marginTop: 15
+  },
+  textinputstyle:{
+    borderWidth:1,
+    borderColor:colors.grey,
+    borderRadius:30,
+    height:40,
+    width:width/1.2,
+    paddingLeft:10,
+    marginTop:9
   }
 
 })

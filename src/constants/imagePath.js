@@ -45,6 +45,7 @@ export default {
   whatsapp: require('../assets/images/whatsapp.mp4'),
   profileiamge:require('../assets/images/profileimage.jpg'),
   profileplusicon:require('../assets/images/profileplusicon.png'),
+  cartoon:require('../assets/images/cartoon.png'),
 
 
 
@@ -79,7 +80,8 @@ export default {
   photo: require('../assets/images/photo.png'),
   Dogvideo: require('../assets/images/dogvideo.mp4'),
   smile: require('../assets/images/smile.png'),
-  forwardicon: require('../assets/images/forwardicon.png')
+  forwardicon: require('../assets/images/forwardicon.png'),
+  video1:require('../assets/images/video.mp4')
 };
 
 

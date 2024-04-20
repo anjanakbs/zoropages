@@ -10,33 +10,35 @@ import {
 import imagePath from '../../constants/imagePath';
 import { moderateScale, textScale, width } from '../../styles/responsiveSize';
 import colors from '../../styles/colors';
-import WrapperContainer from '../../Components/WrapperContainer';
 import fontFamily from '../../styles/fontFamily';
-import SearchList from '../SearchFriend/SearchList';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import SearchFriend from '../SearchFriend/SearchFriend';
-import Reels from '../Reels/Reels';
 import MyPost from './MyPost';
 import MyReels from './MyReels';
 import TagPost from './TagPost';
 import HeaderComp from '../../Components/HeaderComp';
 
 const Tab = createMaterialTopTabNavigator();
-
 const Profile = ({ navigation }) => {
   return (
     // <WrapperContainer>
-    <View style={{flex:1}}>
+    <View style={{ flex: 1 }}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-        <HeaderComp leftIcon={imagePath.backicon}containerstyle={{marginLeft:5     }}/>
-        <View style={{flexDirection:'row',marginTop:10}}>
-          <Image source={imagePath.search2}style={{height:20,width:20,}}/>    
-          <Image source={imagePath.menu}style={{height:20,width:20,marginRight:10,marginLeft:10}}/>
+        <HeaderComp leftIcon={imagePath.backicon} containerstyle={{ marginLeft: 5 }} />
+        <View style={{ flexDirection: 'row', marginTop: 10 }}>
+          <Image source={imagePath.search2} style={{ height: 20, width: 20, }} />
+          <Image source={imagePath.menu} style={{ height: 20, width: 20, marginRight: 10, marginLeft: 10 }} />
         </View>
       </View>
-      <View style={{  alignSelf: 'center', marginTop: 10 }}>
+      <View style={{ marginTop: 10, alignItems: 'center' }}>
         <Image source={imagePath.modal} style={styles.Profile} />
-        <Text style={styles.Profilename}>Marry Leis</Text>
+        <View style={{ paddingLeft: 10 }}>
+          <Text style={styles.Profilename}>Marry Leis</Text>
+          <Text>Live like today is your last day on earth</Text>
+          {/* <Text>Marry Leis</Text> */}
+        </View>
+      </View>
+      <View>
+        {/* <Text style={{marginLeft:9}}>Born March 5,1999  Joined March 2024</Text> */}
       </View>
       <View style={styles.followlist}>
         <Text style={styles.text}>128 Posts</Text>
@@ -53,15 +55,15 @@ const Profile = ({ navigation }) => {
           <Text style={styles.edittext}>Share Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={imagePath.add} style={styles.addprofile}/>
+          <Image source={imagePath.add} style={styles.addprofile} />
         </TouchableOpacity>
       </View>
       <Tab.Navigator>
-        <Tab.Screen name="Post" component={MyPost}/>
-        <Tab.Screen name="Reels" component={MyReels}/>
-        <Tab.Screen name="Tag" component={TagPost}/>
+        <Tab.Screen name="Post" component={MyPost} />
+        <Tab.Screen name="Reels" component={MyReels} />
+        <Tab.Screen name="Tag" component={TagPost} />
       </Tab.Navigator>
-      </View>
+    </View>
     // </WrapperContainer>
   );
 };
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
   followlist: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: 10,
+    marginTop: 15,
   },
   line: {
     height: 1,
@@ -142,9 +144,10 @@ const styles = StyleSheet.create({
   Profilename: {
     fontFamily: fontFamily.bold,
     fontSize: textScale(20),
+    alignSelf: 'center'
   },
-  addprofile:{
-    height:25,
-    width:25
+  addprofile: {
+    height: 25,
+    width: 25
   }
 });

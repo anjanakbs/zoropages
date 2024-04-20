@@ -4,6 +4,8 @@ import {
   Image,
   SafeAreaView,
   Text,
+  TextInput,
+  TextInputComponent,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -22,41 +24,49 @@ import WrapperContainer from './WrapperContainer';
 import fontFamily from '../styles/fontFamily';
 import BottomSheetComp from './BottomSheetComp';
 import CommentbottomsheetComp from './CommentbottomsheetComp';
+import TextInputWithLabel from './TextInputWithLabel';
+import colors from '../styles/colors';
+import Suggestimage from '../Screens/Home/Suggestimage'
 
 const HeaderComponent = ({ navigation }) => (
   <View>
-    <View style={{marginBottom:8}}>
+    <View style={{ marginBottom: 8 }}>
       {/* <View style={styles.mainView}> */}
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Image
+          source={imagePath.logo}
+          resizeMode='contain'
+          style={{ height: 33, width: 30, paddingLeft: width / 3, marginLeft: 10 }}
+        />
+        <View style={styles.image}>
           <Image
-            source={imagePath.logo}
-            resizeMode='contain'
-            style={{ height: 39, width: 28, paddingLeft: width / 2.5, marginLeft: 10 }}
+            source={imagePath.inactive_notification}
+            style={{ height: 21, width: 21 }}
           />
-          <View style={styles.image}>
+          <TouchableOpacity style={{ marginLeft: 20 }} onPress={() => navigation.navigate('Post')}>
             <Image
-              source={imagePath.inactive_notification}
-              style={{ height: 22, width: 22 }}
+              source={imagePath.inactive_message}
+              style={{ height: 23, width: 25 }}
             />
-            <TouchableOpacity style={{ marginLeft: 20 }} onPress={() => navigation.navigate('Post')}>
-              <Image
-                source={imagePath.inactive_message}
-                style={{ height: 23, width: 25 }}
-              />
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
+    </View>
     {/* </View> */}
     <Stories horizontal={true} />
   </View>
 );
 
 const VideoComponent = ({ navigation }) => {
-  const[show, setShow]=useState(true)
- const toggleShow=()=>{
-  setShow(!show)
- }
+  const [show, setShow] = useState(true)
+  const toggleShow = () => {
+    setShow(!show)
+  }
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
   console.log(navigation, 'navigation on video');
   const [isBottomSheetVisible, setIsBottomSheetVisible] = useState(false);
   const [isCommentVisible, setisCommentVisible] = useState(false)
@@ -74,13 +84,14 @@ const VideoComponent = ({ navigation }) => {
         // 'https://farm9.staticflickr.com/8295/8007075227_dc958c1fe6_z_d.jpg',
         require('../assets/images/postimage.jpg'),
       description:
-        'Has plenty to offer the visiting tourist',
+        'Has plenty to offer the visiting tourist Has plenty to offer the visiting tourist, located in the Coventry Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
       isLive: true,
       Follow: 'Follow',
       type: 1,
+
     },
     {
       id: 1,
@@ -93,7 +104,7 @@ const VideoComponent = ({ navigation }) => {
       videoUrl:
         'https://videos.pexels.com/video-files/4434150/4434150-sd_540_960_30fps.mp4',
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry ',
+        'Has plenty to offer the visiting tourist, located in the Coventry Has plenty to offer the visiting tourist, located in the Coventry Has plenty to offer the visiting tourist, located in the Coventry Has plenty to offer the visiting tourist, located in the Coventry ',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -112,7 +123,7 @@ const VideoComponent = ({ navigation }) => {
       videoUrl:
         'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       description:
-        'located in the Coventry is a city with a thousands ',
+        'located in the Coventry is a city with a thousands Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -129,9 +140,9 @@ const VideoComponent = ({ navigation }) => {
       views: '24,969,123',
       author: 'Jack Denil',
       videoUrl:
-      'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',              
+        'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       description:
-        'Has plenty to offer the visiting tourist, located in the Coventry',
+        'Has plenty to offer the visiting tourist, located in the Coventry Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -147,6 +158,7 @@ const VideoComponent = ({ navigation }) => {
       uploadTime: '1 hour ago',
       views: '24,969,123',
       author: 'John Doe',
+      Sponsored:'Sponsored',
       imageUrl: [
         {
           src: 'https://burst.shopifycdn.com/photos/flatlay-iron-skillet-with-meat-and-other-food.jpg?width=1000&format=pjpg&exif=0&iptc=0',
@@ -159,7 +171,7 @@ const VideoComponent = ({ navigation }) => {
         },
       ],
       description:
-        'Has plenty to offer the visiting  thousands year of history that',
+        'Has plenty to offer the visiting  thousands year of history that Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -175,14 +187,14 @@ const VideoComponent = ({ navigation }) => {
       uploadTime: '4 days ago',
       views: '24,969,123',
       author: 'Jack Denil',
-      videoUrl:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       // videoUrl: [
       //  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' ,
       //  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
       //  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
       // ],
       description:
-        'Has plenty to offer the visiting tourist,year of history that',
+        'Has plenty to offer the visiting tourist,year of history that Has plenty to offer the visiting tourist, located in the Coventry',
       subscriber: '25254545 Subscribers',
       Like: 'Like 1000',
       Comment: 'View All Comment 150',
@@ -190,6 +202,7 @@ const VideoComponent = ({ navigation }) => {
       Follow: 'Follow',
       type: 4,
     },
+    
   ];
   const [isPlaying, setIsPlaying] = useState(false);
   const [visibleVideoId, setVisibleVideoId] = useState(null);
@@ -216,13 +229,12 @@ const VideoComponent = ({ navigation }) => {
                 height: 50,
                 width: 50,
                 borderRadius: 25,
-                margin:5
+                margin: 5
               }}
             />
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ }}>
               <Text style={styles.author}>{item.author}</Text>
-            {/* <Text style={styles.Follow}>{item.Follow}</Text> */}
-              {/* <Text style={styles.postdate}>{item.uploadTime}</Text> */}
+            <Text style={styles.Sponsored}>{item.Sponsored}</Text>
             </View>
           </View>
           <View style={styles.followview}>
@@ -233,29 +245,46 @@ const VideoComponent = ({ navigation }) => {
           </View>
         </View>
         <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-       {/* {!show &&} */}
-        <TouchableOpacity onPress={toggleShow}>
-        <Text style={{marginLeft:7}}>See more</Text>
+
+        <TouchableOpacity style={{
+        }} onPress={toggleDescription}>
+          {
+            item.description.length > 10 && showFullDescription ?
+              <>
+                <Text style={[styles.description]} numberOfLines={2}>{item.description}</Text>
+                <Text style={{ marginTop: 5, marginLeft: 9 }}>
+                  View more
+                </Text>
+              </>
+              :
+              <>
+                <Text style={styles.description}>{item.description}</Text>
+              </>
+          }
         </TouchableOpacity>
+        {/* {!show &&
+        <TouchableOpacity onPress={toggleShow}>
+        <Text style={{marginLeft:9}}>View More</Text>
         {show &&
         <View>
-          <Text style={{marginLeft:7}}>Has plenty to offer the visiting located in the Coventry tourist,year of history that</Text>
+          <Text>{item.description}</Text>
         </View>}
+        </TouchableOpacity>} */}
+
       </View>
       {item?.type == 1 ? (
         <Image
-          source={ item.imageUrl }
+          source={item.imageUrl}
           style={{
-            height: height / 1.5,
+            height: height / 1.6,
             width: width,
-            resizeMode:'cover',
+            resizeMode: 'cover',
           }}
         />) : item?.type == 2 ? (
           <SlidePost imageUrl={item.imageUrl} />
         ) : item?.type == 4 ?
         <Video
-          source={{ uri: item.videoUrl}}
+          source={{ uri: item.videoUrl }}
           style={styles.video}
           resizeMode="cover"
           repeat={true}
@@ -277,53 +306,65 @@ const VideoComponent = ({ navigation }) => {
             />
           </TouchableOpacity>
         )}
-      <View style={{ marginBottom: 10, }}>
-         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+      <View style={styles.iconview}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => alert('like')} style={{flexDirection:'row'}}>
+            <TouchableOpacity onPress={() => alert('like')} style={{ flexDirection: 'row' }}>
               <Image source={imagePath.Like2} style={styles.icon} />
-              {/* <Text style={{alignSelf:'center'}}>100k</Text> */}
             </TouchableOpacity>
-            <TouchableOpacity  onPress={() => setisCommentVisible(!isCommentVisible)}style={{flexDirection:'row'}}>
+            <TouchableOpacity onPress={() => setisCommentVisible(!isCommentVisible)} style={{ flexDirection: 'row' }}>
               <Image source={imagePath.comment3} style={styles.icon} />
-              {/* <Text style={{alignSelf:'center'}}>100k</Text> */}
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => alert('share')}style={{flexDirection:'row'}}>
+            <TouchableOpacity onPress={() => alert('share')} style={{ flexDirection: 'row' }}>
               <Image source={imagePath.share4} style={styles.icon} />
-              {/* <Text style={{alignSelf:'center',marginTop:4}}>200</Text> */}
             </TouchableOpacity>
           </View>
-          <Image source={imagePath.Save} style={styles.saveicon}/>
+          <Image source={imagePath.Save} style={styles.saveicon} />
         </View>
-        <View style={{marginLeft:7,marginTop:5}}>
+        <View style={{ marginLeft: 7, marginTop: 5, marginBottom: 5 }}>
           <Text style={styles.likecount}>1000 Likes</Text>
-          <Text onPress={() => setisCommentVisible(!isCommentVisible)}>View all 10 comments</Text>
+          <Text onPress={() => setisCommentVisible(!isCommentVisible)} style={styles.viewallcomment}>View all 10 comments</Text>
         </View>
-        
+        <View style={{ flexDirection: 'row' }}>
+          {/* <Image source={{ uri: item.src }} */}
+          <Image source={imagePath.modal}
+            style={{
+              height: 32,
+              width: 32,
+              borderRadius: 25,
+              margin: 5
+            }} />
+          <TextInput placeholder='Add a comment....' style={styles.textinputstyle} />
+        </View>
+        <Text style={styles.uploadTime}>{item.uploadTime}</Text>
       </View>
+      {/* <Suggestimage/> */}
+
     </View>
   );
   return (
-    <SafeAreaView style={{flex:1}}>
-    <FlatList
-      data={data}
-      ListHeaderComponent={renderHeader}
-      renderItem={renderItem}
-      keyExtractor={item => item.id.toString()}
-      style={{
-        alignSelf: 'center',
-        flex: 1,
-        marginTop: 20,
-      }}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
-      viewablePercentThreshold={100}
-      onViewableItemsChanged={handleViewableItemsChanged}
-    />
-    {
-      isBottomSheetVisible && <BottomSheetComp snapPoints={['25%', '50%', '100%', '150%']} />
-    }
-     {
+    <SafeAreaView style={{ flex: 1 }}>
+      <FlatList
+        data={data}
+        ListHeaderComponent={renderHeader}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+        style={{
+          alignSelf: 'center',
+          flex: 1,
+          marginTop: 20,
+        }}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        viewablePercentThreshold={100}
+        onViewableItemsChanged={handleViewableItemsChanged}
+      />
+       <View>
+     </View>
+      {
+        isBottomSheetVisible && <BottomSheetComp snapPoints={['25%', '50%', '100%', '150%']} />
+      }
+      {
         isCommentVisible && <CommentbottomsheetComp commentsnapPoints={['25%', '50%', '100%', '150%']} />
       }
     </SafeAreaView>
