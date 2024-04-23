@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import TextInputWithLabel from '../../Components/TextInputWithLabel'
-import Inputcomponent from '../../Components/inputcomponent'
 import colors from '../../styles/colors'
 import { height, textScale } from '../../styles/responsiveSize'
 import fontFamily from '../../styles/fontFamily'
@@ -20,26 +19,7 @@ const EditProfile = ({ navigation }) => {
                 <Image source={imagePath.modal} style={{height:80,width:80,borderRadius:50,alignSelf:'center'}}/>
             </View>
             <Text style={styles.text}>Edit picture or avatar</Text>
-            <Inputcomponent label='name'
-                extraStyle={{
-                    borderBottomWidth: 1,
-                    marginBottom:10
-                }} />
-            <Inputcomponent label='UserName'
-                extraStyle={{
-                    borderBottomWidth: 1,
-                    marginBottom:10
-                }} />
-            <Inputcomponent label='Pronouns'
-                extraStyle={{
-                    borderBottomWidth: 1,
-                    marginBottom:10
-                }} />
-            <Inputcomponent label='Bio'
-                extraStyle={{
-                    borderBottomWidth: 1,
-                    marginBottom:10
-                }} />
+            
         </View>
     )
 }
