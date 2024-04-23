@@ -30,7 +30,7 @@ const Profile = ({ navigation }) => {
         </View>
       </View>
       <View style={{ marginTop: 10, alignItems: 'center' }}>
-        <Image source={imagePath.modal} style={styles.Profile} />
+        <Image source={imagePath.modal} style={styles.Profile}/>
         <View style={{ paddingLeft: 10 }}>
           <Text style={styles.Profilename}>Marry Leis</Text>
           <Text>Live like today is your last day on earth</Text>
@@ -48,18 +48,15 @@ const Profile = ({ navigation }) => {
         <Text onPress={() => navigation.navigate('MaterialTopTab')} style={styles.text}>100 Following</Text>
       </View>
       <View style={styles.editbuttonview}>
-        <TouchableOpacity style={styles.editbutton}>
+        <TouchableOpacity style={styles.editbutton}onPress={()=>navigation.navigate('EditProfile')}>
           <Text style={styles.edittext}>Edit Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.editbutton}>
           <Text style={styles.edittext}>Share Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Image source={imagePath.add} style={styles.addprofile} />
-        </TouchableOpacity>
       </View>
       <Tab.Navigator>
-        <Tab.Screen name="Post" component={MyPost} />
+        <Tab.Screen name="MyPost" component={MyPost} />
         <Tab.Screen name="Reels" component={MyReels} />
         <Tab.Screen name="Tag" component={TagPost} />
       </Tab.Navigator>

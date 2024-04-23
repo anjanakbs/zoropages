@@ -18,6 +18,7 @@ import Following from '../Screens/SearchFriend/Following';
 import BottomSheetComp from '../Components/BottomSheetComp';
 import ModalSheet from '../Components/ModalSheet';
 import SearchFriend from '../Screens/SearchFriend/SearchFriend';
+import EditProfile from '../Screens/EditProfile/EditProfile';
 
 export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
@@ -104,6 +105,11 @@ export default function (Stack, isFirstTime) {
       <Stack.Screen
         name={navigationStrings.BottomSheetComp}
         component={BottomSheetComp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.EditProfile}
+        component={EditProfile}
         options={{headerShown: false}}
       />
     </>

@@ -13,6 +13,7 @@ export default {
 //  offgreen:'#5d9475',
  offgreen:'#b8f5dc',
  lightblue:'#b8e9f5',
+ blue:'#349beb',
     
     
 

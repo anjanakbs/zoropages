@@ -5,7 +5,7 @@ import colors from '../styles/colors';
 import fontFamily from '../styles/fontFamily';
 import commonStyles from '../styles/commonStyles';
 
-const TextInputWithLabel
+const Inputcomponent
     = ({
         value,
         onChangeText,
@@ -40,24 +40,24 @@ const TextInputWithLabel
     }
 const styles = StyleSheet.create({
     inputStyle: {
-        ...commonStyles.fontSize14,
-        backgroundColor: colors.whiteColor,
-        borderRadius:10,
-        height: moderateScale(40),
-        paddingHorizontal: moderateScale(28),
-        // marginBottom: moderateScaleVertical(16),
-        borderWidth: 1,
-        borderColor: colors.grey,
-        alignItems: 'center',
+        // ...commonStyles.fontSize14,
+        // backgroundColor: colors.whiteColor,
+        // borderRadius:10,
+        // height: moderateScale(40),
+        // paddingHorizontal: moderateScale(28),
+        // // marginBottom: moderateScaleVertical(16),
+        // borderWidth: 1,
+        // borderColor: colors.grey,
+        // alignItems: 'center',
     },
     labelText: {
-        ...commonStyles.fontSize20,
+        ...commonStyles.fontSize10,
         fontFamily: fontFamily.medium,
         // marginBottom: moderateScaleVertical(24),
-        textTransform:'uppercase'
+        // textTransform:'uppercase'
     }
 });
 
 
-export default TextInputWithLabel
+export default Inputcomponent
 

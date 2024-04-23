@@ -251,14 +251,19 @@ const VideoComponent = ({ navigation }) => {
           {
             item.description.length > 10 && showFullDescription ?
               <>
-                <Text style={[styles.description]} numberOfLines={2}>{item.description}</Text>
+                {/* <Text style={[styles.description]} numberOfLines={2}>{item.description}</Text>
                 <Text style={{ marginTop: 5, marginLeft: 9 }}>
                   View more
-                </Text>
+                </Text> */}
+                <Text style={styles.description}>{item.description}</Text>
               </>
               :
               <>
-                <Text style={styles.description}>{item.description}</Text>
+                {/* <Text style={styles.description}>{item.description}</Text> */}
+                 <Text style={[styles.description]} numberOfLines={2}>{item.description}</Text>
+                <Text style={{ marginTop: 5, marginLeft: 9 }}>
+                  View more
+                </Text>
               </>
           }
         </TouchableOpacity>

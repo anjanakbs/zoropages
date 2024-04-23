@@ -46,6 +46,8 @@ export default {
   profileiamge:require('../assets/images/profileimage.jpg'),
   profileplusicon:require('../assets/images/profileplusicon.png'),
   cartoon:require('../assets/images/cartoon.png'),
+  profile:require('../assets/images/profile.png'),
+  check:require('../assets/images/check.png'),
 
 
 
@@ -81,7 +83,8 @@ export default {
   Dogvideo: require('../assets/images/dogvideo.mp4'),
   smile: require('../assets/images/smile.png'),
   forwardicon: require('../assets/images/forwardicon.png'),
-  video1:require('../assets/images/video.mp4')
+  video1:require('../assets/images/video.mp4'),
+  cancel:require('../assets/images/cancel.png')
 };
 
 

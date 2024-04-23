@@ -1,3 +1,4 @@
+
 export default {
     TAB_ROUTES:"TabRoutes",
     MaterialTopTab:'MaterialTopTab',
@@ -21,5 +22,6 @@ export default {
     ANIMATION:"animation",
     BottomSheetComp:"BottomSheetComp",
     Reels:'Reels',
-    ModalSheet:'ModalSheet'
+    ModalSheet:'ModalSheet',
+    EditProfile:'EditProfile'
 }
