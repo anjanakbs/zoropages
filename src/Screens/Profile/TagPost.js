@@ -13,10 +13,10 @@ const TagPost = () => {
   ])
   const renderItem = ({item}) => (
     console.log('hlo', item.src),
-    <View style={{width:206,height:200,margin:2}}>
+    <View style={{width:136,height:130,margin:2}}>
       <Image source={item.src} style={{
-        height:200,
-        width:206,
+        height:130,
+        width:136,
         resizeMode:'cover',
       }}/>
       <Text>{item.text}</Text>
@@ -28,7 +28,7 @@ const TagPost = () => {
         data={post}
         renderItem={renderItem}
         showsHorizontalScrollIndicator={false}
-        numColumns='2'
+        numColumns='3'
       />
     </View>
   )

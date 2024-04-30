@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Reels from '../Screens/Reels/Reels';
+import News from '../Screens/News/News';
 
 const BottomTab = createBottomTabNavigator();
 // const Stack = createNativeStackNavigator();
@@ -69,13 +70,15 @@ const TabRoutes = props => {
           tabBarIcon: ({focused}) => {
             return focused ? (
               <Image
-                source={imagePath.inactive_real}
+                source={imagePath.property}
                 style={{
                   tintColor: colors.darkgreen,
+                  height:25,
+                  width:25
                 }}
               />
             ) : (
-              <Image source={imagePath.active_real} />
+              <Image source={imagePath.property} style={{height:25,width:25}} />
             );
           },
         }}
@@ -108,19 +111,25 @@ const TabRoutes = props => {
         }}
       />
       <BottomTab.Screen
-        name={navigationStrings.NOTIFICATION}
-        component={Notification}
+        name={navigationStrings.News}
+        component={News}
         options={{
           tabBarIcon: ({focused}) => {
             return focused ? (
               <Image
-                source={imagePath.active_notification}
+                source={imagePath.news}
                 style={{
                   tintColor: colors.darkgreen,
+                  height:20,
+                  width:20
                 }}
               />
             ) : (
-              <Image source={imagePath.inactive_notification} />
+              <Image source={imagePath.news} 
+              style={{
+                height:20,
+                width:20
+              }}/>
             );
           },
         }}

@@ -19,6 +19,13 @@ import BottomSheetComp from '../Components/BottomSheetComp';
 import ModalSheet from '../Components/ModalSheet';
 import SearchFriend from '../Screens/SearchFriend/SearchFriend';
 import EditProfile from '../Screens/EditProfile/EditProfile';
+import Name from '../Screens/EditProfile/Name';
+import UserName from '../Screens/EditProfile/UserName';
+import Pronouns from '../Screens/EditProfile/Pronouns';
+import Bio from '../Screens/EditProfile/Bio';
+import Addlink from '../Screens/EditProfile/Addlink';
+import Gender from '../Screens/EditProfile/Gender';
+import News from '../Screens/News/News';
 
 export default function (Stack, isFirstTime) {
   console.log('auth stack', isFirstTime);
@@ -42,7 +49,6 @@ export default function (Stack, isFirstTime) {
         component={LoginHomeScreen}
         options={{headerShown: false}}
       />
-
       <Stack.Screen
         name={navigationStrings.LOGIN}
         component={Login}
@@ -110,6 +116,41 @@ export default function (Stack, isFirstTime) {
       <Stack.Screen
         name={navigationStrings.EditProfile}
         component={EditProfile}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.Name}
+        component={Name}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.UserName}
+        component={UserName}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.Pronouns}
+        component={Pronouns}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.Bio}
+        component={Bio}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.Addlink}
+        component={Addlink}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={navigationStrings.Gender}
+        component={Gender}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name={navigationStrings.News}
+        component={News}
         options={{headerShown: false}}
       />
     </>

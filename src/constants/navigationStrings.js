@@ -23,5 +23,12 @@ export default {
     BottomSheetComp:"BottomSheetComp",
     Reels:'Reels',
     ModalSheet:'ModalSheet',
-    EditProfile:'EditProfile'
+    EditProfile:'EditProfile',
+    Name:'Name',
+    UserName:'UserName',
+    Pronouns:'Pronouns',
+    Bio:'Bio',
+    Addlink:'Addlink',
+    Gender:'Gender',
+    News:'News'
 }

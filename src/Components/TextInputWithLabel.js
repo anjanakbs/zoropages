@@ -19,12 +19,14 @@ const TextInputWithLabel
          width,
          height,
          onFocus,
+         lefticonstyle={},
+         righticonstyle={},
         ...props
     }) => {
         return (
             <View style={{...extraStyle}}>
                 <Text style={styles.labelText}>{label}</Text>
-                {lefticon && <Image source={lefticon} style={{position:'absolute',bottom:9,left:28}}/>}
+                {lefticon && <Image source={lefticon} style={{...lefticonstyle}}/>}
                 <TextInput
                     style={{ ...styles.inputStyle }}
                     value={value}
@@ -34,7 +36,7 @@ const TextInputWithLabel
                     onFocus={onFocus}
                     {...props}
                 />
-                 {righticon && <Image source={righticon} />}
+                 {righticon && <Image source={righticon} style={{...righticonstyle}}/>}
             </View>
         )
     }

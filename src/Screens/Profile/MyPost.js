@@ -2,7 +2,7 @@ import { View, Text, Image, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import imagePath from '../../constants/imagePath'
 
-const MyPost = () => {
+const MyPost = ({navigation}) => {
   const[post, setPpost]=useState([
     { src: require('../../assets/images/modal.png')},
     { src: require('../../assets/images/profileimage.jpg')},
@@ -17,10 +17,10 @@ const MyPost = () => {
 
   const renderItem = ({item}) => (
     console.log('hlo', item.src),
-        <View style={{width:206,height:200,margin:2}}>
+        <View style={{width:136,height:130,margin:2}}>
       <Image source={item.src} style={{
-        height:200,
-        width:206,
+        height:130,
+        width:136,
         resizeMode:'cover',
       }}/>
       <Text>{item.text}</Text>
@@ -33,7 +33,7 @@ const MyPost = () => {
         data={post}
         renderItem={renderItem}
         showsHorizontalScrollIndicator={false}
-        numColumns='2'
+        numColumns='3'
       /> 
     </View>
   )
